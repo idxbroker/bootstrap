@@ -45,17 +45,21 @@ class Converter
     def load_shared
       @shared_mixins ||= begin
         log_status '  Reading shared mixins from mixins.less'
-        read_mixins read_files('less', bootstrap_less_files.grep(/mixins\//)).values.join("\n"), nested: NESTED_MIXINS
+        path =  File.dirname(__FILE__) + '/../../less'
+        files = Dir.entries(path).select{ |e| File.file? "#{path}/#{e}" and e =~ /\.less$/}
+        read_mixins Dir.glob("#{path}/**/*.less").grep(/mixins\//).join("\n"), nested: NESTED_MIXINS
       end
     end
 
     def process_stylesheet_assets
       log_status 'Processing stylesheets...'
-      files = read_files('less', bootstrap_less_files)
-      save_to = @save_to[:scss]
+      path =  File.dirname(__FILE__) + '/../../less'
+      files = Dir.glob(path + '/**/*.less')
 
+      save_to = File.dirname(__FILE__) + '/../../' + @save_to[:scss]
       log_status '  Converting LESS files to Scss:'
-      files.each do |name, file|
+      files.each do |name|
+        file = File.open(name).read
         log_processing name
         # apply common conversions
         file = convert_less(file)
@@ -111,7 +115,9 @@ class Converter
           when 'thumbnails.less', 'labels.less', 'badges.less'
             file = extract_nested_rule file, 'a&'
           when 'glyphicons.less'
-            file = bootstrap_font_files.map { |p| %Q(//= depend_on "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
+            font_path =  File.dirname(__FILE__) + '/../../fonts'
+            font_files = Dir.entries(font_path).select{ |e| File.file? "#{font_path}/#{e}" and e =~ /\.(eot|svg|ttf|woff)$/}
+            file = font_files.map { |p| %Q(//= depend_on "bootstrap/#{File.basename(p)}") } * "\n" + "\n" + file
             file = replace_rules(file, '@font-face') { |rule|
               rule = replace_all rule, /(\$icon-font(?:-\w+)+)/, '#{\1}'
               replace_asset_url rule, :font
@@ -123,17 +129,19 @@ class Converter
         end
 
         name    = name.sub(/\.less$/, '.scss')
-        path    = File.join save_to, name
+        path    = "#{save_to}/#{ File.basename(name) }"
         unless name == 'bootstrap.scss'
           path = File.join File.dirname(path), '_' + File.basename(path)
         end
         save_file(path, file)
         log_processed File.basename(path)
       end
-
+      puts '-' * 60
+      puts File.expand_path("../../#{save_to}/../bootstrap.scss")
+      puts '-' * 60
       # generate imports valid relative to both load path and file directory
-      save_file File.expand_path("#{save_to}/../bootstrap.scss"),
-                File.read("#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
+      save_file File.expand_path("../../#{save_to}/../bootstrap.scss"),
+                File.read("../../#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
     end
 
     def bootstrap_less_files
