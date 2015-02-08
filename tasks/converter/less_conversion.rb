@@ -136,12 +136,11 @@ class Converter
         save_file(path, file)
         log_processed File.basename(path)
       end
-      puts '-' * 60
-      puts File.expand_path("../../#{save_to}/../bootstrap.scss")
-      puts '-' * 60
+      main_from =  File.expand_path("./assets/stylesheets/bootstrap/_bootstrap.scss")
+      main_to = File.expand_path("./assets/stylesheets/_bootstrap.scss")
       # generate imports valid relative to both load path and file directory
-      save_file File.expand_path("../../#{save_to}/../bootstrap.scss"),
-                File.read("../../#{save_to}/bootstrap.scss").gsub(/ "/, ' "bootstrap/')
+      save_file main_to, File.read(main_from).gsub(/ "/, ' "bootstrap/')
+      File.delete(main_from)
     end
 
     def bootstrap_less_files

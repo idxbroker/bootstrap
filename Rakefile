@@ -4,5 +4,5 @@ $:.unshift(lib_path) unless $:.include?(lib_path)
 desc 'Convert less to sass'
 task :convert do |t, args|
   require './tasks/converter'
-  Converter.new(branch: args[:branch]).process_bootstrap
+  Converter.new().process_bootstrap
 end
