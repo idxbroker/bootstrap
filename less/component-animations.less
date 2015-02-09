@@ -7,7 +7,7 @@
 // We don't use the `.opacity()` mixin here since it causes a bug with text
 // fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552.
 
-.fade {
+.IDX-fade {
   opacity: 0;
   .transition(opacity .15s linear);
   &.in {
@@ -15,15 +15,15 @@
   }
 }
 
-.collapse {
+.IDX-collapse {
   display: none;
 
-  &.in      { display: block; }
-  tr&.in    { display: table-row; }
-  tbody&.in { display: table-row-group; }
+  &.IDX-in      { display: block; }
+  tr&.IDX-in    { display: table-row; }
+  tbody&.IDX-in { display: table-row-group; }
 }
 
-.collapsing {
+.IDX-collapsing {
   position: relative;
   height: 0;
   overflow: hidden;

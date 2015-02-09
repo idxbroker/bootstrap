@@ -8,7 +8,7 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
-.navbar {
+.IDX-navbar {
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
@@ -28,7 +28,7 @@
 // Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
 // styling of responsive aspects.
 
-.navbar-header {
+.IDX-navbar-header {
   &:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
@@ -286,8 +286,8 @@
 // though so that navbar contents properly stack and align in mobile.
 
 @media (min-width: @grid-float-breakpoint) {
-  .navbar-left  { .pull-left(); }
-  .navbar-right { .pull-right(); }
+  .IDX-navbar-left  { .IDX-pull-left(); }
+  .IDX-navbar-right { .IDX-pull-right(); }
 }
 
 

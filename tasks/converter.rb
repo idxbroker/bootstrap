@@ -25,44 +25,33 @@ require_relative 'converter/fonts_conversion'
 require_relative 'converter/less_conversion'
 require_relative 'converter/js_conversion'
 require_relative 'converter/logger'
-require_relative 'converter/network'
 
 class Converter
   extend Forwardable
-  include Network
   include LessConversion
   include JsConversion
   include FontsConversion
 
-  def initialize(repo: 'idxbroker/bootstrap', branch: 'idx', save_to: {}, cache_path: 'tmp/converter-cache-bootstrap')
+  def initialize()
     @logger     = Logger.new
-    @repo       = repo
-    @branch     = branch || 'master'
-    @branch_sha = get_branch_sha
-    @cache_path = cache_path
-    @repo_url   = "https://github.com/#@repo"
     @save_to    = {
         js:    'assets/javascripts/bootstrap',
         scss:  'assets/stylesheets/bootstrap',
-        fonts: 'assets/fonts/bootstrap'}.merge(save_to)
+        fonts: 'assets/fonts/bootstrap'
+    }
   end
 
   def_delegators :@logger, :log, :log_status, :log_processing, :log_transform, :log_file_info, :log_processed, :log_http_get_file, :log_http_get_files, :silence_log
 
   def process_bootstrap
     log_status "Convert Bootstrap LESS to SASS"
-    puts " repo   : #@repo_url"
-    puts " branch : #@branch_sha #@repo_url/tree/#@branch"
     puts " save to: #{@save_to.to_json}"
-    puts " twbs cache: #{@cache_path}"
-    puts '-' * 60
 
     @save_to.each { |_, v| FileUtils.mkdir_p(v) }
 
     process_font_assets
     process_stylesheet_assets
     process_javascript_assets
-    store_version
   end
 
   def save_file(path, content, mode='w')

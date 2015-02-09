@@ -4,9 +4,12 @@ class Converter
       log_status 'Processing javascripts...'
       save_to = @save_to[:js]
       contents = {}
-      read_files('js', bootstrap_js_files).each do |name, file|
+      path =  File.dirname(__FILE__) + '/../../js'
+      bootstrap_js_files = Dir.entries(path).select{ |e| File.file? "#{path}/#{e}" and e =~ /\.(js)$/}
+      bootstrap_js_files.each do |name|
+        file = File.open("#{path}/#{name}").read
         contents[name] = file
-        save_file("#{save_to}/#{name}", file)
+        save_file("./assets/javascripts/bootstrap/#{name}", file)
       end
       log_processed "#{bootstrap_js_files * ' '}"
 
@@ -24,22 +27,20 @@ class Converter
         log_processed path
       end
     end
+    # def read_files(path, files)
+    #   full_path = "https://raw.github.com/#@repo/#@branch_sha/#{path}"
+    #   contents = read_cached_files(path, files)
+    #   log_http_get_files contents.keys, full_path, true if contents.keys
+    #   files -= contents.keys
+    #   log_http_get_files files, full_path, false
+    #   files.map do |name|
+    #     Thread.start {
+    #       content = open("#{full_path}/#{name}").read
+    #       Thread.exclusive { write_cached_files path, name => content }
+    #     }
+    #   end.each(&:join)
+    #   contents
+    # end
 
-    def bootstrap_js_files
-      @bootstrap_js_files ||= begin
-        files = get_paths_by_type 'js', /\.js$/
-        files.sort_by { |f|
-          case f
-            # tooltip depends on popover and must be loaded earlier
-            when /tooltip/ then
-              1
-            when /popover/ then
-              2
-            else
-              0
-          end
-        }
-      end
-    end
   end
 end

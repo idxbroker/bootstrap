@@ -4,7 +4,7 @@
 
 
 // Dropdown arrow/caret
-.caret {
+.IDX-caret {
   display: inline-block;
   width: 0;
   height: 0;
@@ -16,17 +16,17 @@
 }
 
 // The dropdown wrapper (div)
-.dropdown {
+.IDX-dropdown {
   position: relative;
 }
 
 // Prevent the focus on the dropdown toggle when closing dropdowns
-.dropdown-toggle:focus {
+.IDX-dropdown-toggle:focus {
   outline: 0;
 }
 
 // The dropdown menu (ul)
-.dropdown-menu {
+.IDX-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -48,15 +48,15 @@
 
   // Aligns the dropdown menu to right
   //
-  // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
-  &.pull-right {
+  // Deprecated as of 3.1.0 in favor of `.IDX-dropdown-menu-[dir]`
+  &.IDX-pull-right {
     right: 0;
     left: auto;
   }
 
   // Dividers (basically an hr) within the dropdown
-  .divider {
-    .nav-divider(@dropdown-divider-bg);
+  .IDX-divider {
+    .IDX-nav-divider(@dropdown-divider-bg);
   }
 
   // Links within the dropdown menu
@@ -72,7 +72,7 @@
 }
 
 // Hover/Focus state
-.dropdown-menu > li > a {
+.IDX-dropdown-menu > li > a {
   &:hover,
   &:focus {
     text-decoration: none;
@@ -82,7 +82,7 @@
 }
 
 // Active state
-.dropdown-menu > .active > a {
+.IDX-dropdown-menu > .IDX-active > a {
   &,
   &:hover,
   &:focus {
@@ -97,7 +97,7 @@
 //
 // Gray out text and ensure the hover/focus state remains gray
 
-.dropdown-menu > .disabled > a {
+.IDX-dropdown-menu > .IDX-disabled > a {
   &,
   &:hover,
   &:focus {
@@ -105,7 +105,7 @@
   }
 }
 // Nuke hover/focus effects
-.dropdown-menu > .disabled > a {
+.IDX-dropdown-menu > .IDX-disabled > a {
   &:hover,
   &:focus {
     text-decoration: none;
@@ -117,9 +117,9 @@
 }
 
 // Open state for the dropdown
-.open {
+.IDX-open {
   // Show the menu
-  > .dropdown-menu {
+  > .IDX-dropdown-menu {
     display: block;
   }
 
@@ -131,25 +131,25 @@
 
 // Menu positioning
 //
-// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// Add extra class to `.IDX-dropdown-menu` to flip the alignment of the dropdown
 // menu with the parent.
-.dropdown-menu-right {
-  left: auto; // Reset the default from `.dropdown-menu`
+.IDX-dropdown-menu-right {
+  left: auto; // Reset the default from `.IDX-dropdown-menu`
   right: 0;
 }
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
 // to restore the default dropdown menu alignment.
 //
-// This is only for left-aligning a dropdown menu within a `.navbar-right` or
-// `.pull-right` nav component.
-.dropdown-menu-left {
+// This is only for left-aligning a dropdown menu within a `.IDX-navbar-right` or
+// `.IDX-pull-right` nav component.
+.IDX-dropdown-menu-left {
   left: 0;
   right: auto;
 }
 
 // Dropdown section headers
-.dropdown-header {
+.IDX-dropdown-header {
   display: block;
   padding: 3px 20px;
   font-size: @font-size-small;
@@ -159,7 +159,7 @@
 }
 
 // Backdrop to catch body clicks on mobile, etc.
-.dropdown-backdrop {
+.IDX-dropdown-backdrop {
   position: fixed;
   left: 0;
   right: 0;
@@ -169,18 +169,18 @@
 }
 
 // Right aligned dropdowns
-.pull-right > .dropdown-menu {
+.IDX-pull-right > .IDX-dropdown-menu {
   right: 0;
   left: auto;
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 //
-// Just add .dropup after the standard .dropdown class and you're set, bro.
+// Just add .IDX-dropup after the standard .IDX-dropdown class and you're set, bro.
 // TODO: abstract this so that the navbar fixed styles are not placed here?
 
-.dropup,
-.navbar-fixed-bottom .dropdown {
+.IDX-dropup,
+.IDX-navbar-fixed-bottom .IDX-dropdown {
   // Reverse the caret
   .caret {
     border-top: 0;
@@ -188,7 +188,7 @@
     content: "";
   }
   // Different positioning for bottom up menu
-  .dropdown-menu {
+  .IDX-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
@@ -202,13 +202,13 @@
 
 @media (min-width: @grid-float-breakpoint) {
   .navbar-right {
-    .dropdown-menu {
-      .dropdown-menu-right();
+    .IDX-dropdown-menu {
+      .IDX-dropdown-menu-right();
     }
     // Necessary for overrides of the default right aligned menu.
     // Will remove come v4 in all likelihood.
-    .dropdown-menu-left {
-      .dropdown-menu-left();
+    .IDX-dropdown-menu-left {
+      .IDX-dropdown-menu-left();
     }
   }
 }
