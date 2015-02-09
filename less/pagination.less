@@ -1,7 +1,7 @@
 //
 // Pagination (multiple pages)
 // --------------------------------------------------
-.pagination {
+.IDX-pagination {
   display: inline-block;
   padding-left: 0;
   margin: @line-height-computed 0;
@@ -46,8 +46,8 @@
     }
   }
 
-  > .active > a,
-  > .active > span {
+  > .IDX-active > a,
+  > .IDX-active > span {
     &,
     &:hover,
     &:focus {
@@ -59,7 +59,7 @@
     }
   }
 
-  > .disabled {
+  > .IDX-disabled {
     > span,
     > span:hover,
     > span:focus,
@@ -78,11 +78,11 @@
 // --------------------------------------------------
 
 // Large
-.pagination-lg {
+.IDX-pagination-lg {
   .pagination-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @border-radius-large);
 }
 
 // Small
-.pagination-sm {
+.IDX-pagination-sm {
   .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @border-radius-small);
 }

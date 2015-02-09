@@ -4,7 +4,7 @@
 
 
 // Base class
-.badge {
+.IDX-badge {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
@@ -24,11 +24,11 @@
   }
 
   // Quick fix for badges in buttons
-  .btn & {
+  .IDX-btn & {
     position: relative;
     top: -1px;
   }
-  .btn-xs & {
+  .IDX-btn-xs & {
     top: 0;
     padding: 1px 5px;
   }
@@ -44,12 +44,12 @@
   }
 
   // Account for badges in navs
-  a.list-group-item.active > &,
-  .nav-pills > .active > a > & {
+  a.IDX-list-group-item.IDX-active > &,
+  .IDX-nav-pills > .IDX-active > a > & {
     color: @badge-active-color;
     background-color: @badge-active-bg;
   }
-  .nav-pills > li > a > & {
+  .IDX-nav-pills > li > a > & {
     margin-left: 3px;
   }
 }

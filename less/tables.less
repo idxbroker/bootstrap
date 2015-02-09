@@ -13,7 +13,7 @@ th {
 
 // Baseline styles
 
-.table {
+.IDX-table {
   width: 100%;
   max-width: 100%;
   margin-bottom: @line-height-computed;
@@ -53,7 +53,7 @@ th {
   }
 
   // Nesting
-  .table {
+  .IDX-table {
     background-color: @body-bg;
   }
 }
@@ -61,7 +61,7 @@ th {
 
 // Condensed table w/ half padding
 
-.table-condensed {
+.IDX-table-condensed {
   > thead,
   > tbody,
   > tfoot {
@@ -79,7 +79,7 @@ th {
 //
 // Add borders all around the table and between all the columns.
 
-.table-bordered {
+.IDX-table-bordered {
   border: 1px solid @table-border-color;
   > thead,
   > tbody,
@@ -104,7 +104,7 @@ th {
 //
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
-.table-striped {
+.IDX-table-striped {
   > tbody > tr:nth-child(odd) {
     > td,
     > th {
@@ -118,7 +118,7 @@ th {
 //
 // Placed here since it has to come after the potential zebra striping
 
-.table-hover {
+.IDX-table-hover {
   > tbody > tr:hover {
     > td,
     > th {
@@ -151,24 +151,24 @@ table {
 
 // Table backgrounds
 //
-// Exact selectors below required to override `.table-striped` and prevent
+// Exact selectors below required to override `.IDX-table-striped` and prevent
 // inheritance to nested tables.
 
 // Generate the contextual variants
-.table-row-variant(active; @table-bg-active);
-.table-row-variant(success; @state-success-bg);
-.table-row-variant(info; @state-info-bg);
-.table-row-variant(warning; @state-warning-bg);
-.table-row-variant(danger; @state-danger-bg);
+.IDX-table-row-variant(active; @table-bg-active);
+.IDX-table-row-variant(success; @state-success-bg);
+.IDX-table-row-variant(info; @state-info-bg);
+.IDX-table-row-variant(warning; @state-warning-bg);
+.IDX-table-row-variant(danger; @state-danger-bg);
 
 
 // Responsive tables
 //
-// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// Wrap your tables in `.IDX-table-responsive` and we'll make them mobile friendly
 // by enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
 
-.table-responsive {
+.IDX-table-responsive {
   @media screen and (max-width: @screen-xs-max) {
     width: 100%;
     margin-bottom: (@line-height-computed * 0.75);
@@ -179,7 +179,7 @@ table {
     -webkit-overflow-scrolling: touch;
 
     // Tighten up spacing
-    > .table {
+    > .IDX-table {
       margin-bottom: 0;
 
       // Ensure the content doesn't wrap
@@ -196,7 +196,7 @@ table {
     }
 
     // Special overrides for the bordered tables
-    > .table-bordered {
+    > .IDX-table-bordered {
       border: 0;
 
       // Nuke the appropriate borders so that the parent can handle them

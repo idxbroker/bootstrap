@@ -11,15 +11,15 @@
   &:hover,
   &:focus,
   &:active,
-  &.active,
-  .open > .dropdown-toggle& {
+  &.IDX-active,
+  .IDX-open > .IDX-dropdown-toggle& {
     color: @color;
     background-color: darken(@background, 10%);
         border-color: darken(@border, 12%);
   }
   &:active,
-  &.active,
-  .open > .dropdown-toggle& {
+  &.IDX-active,
+  .IDX-open > .IDX-dropdown-toggle& {
     background-image: none;
   }
   &.disabled,
@@ -29,7 +29,7 @@
     &:hover,
     &:focus,
     &:active,
-    &.active {
+    &.IDX-active {
       background-color: @background;
           border-color: @border;
     }

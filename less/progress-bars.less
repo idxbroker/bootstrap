@@ -24,7 +24,7 @@
 // -------------------------
 
 // Outer container
-.progress {
+.IDX-progress {
   overflow: hidden;
   height: @line-height-computed;
   margin-bottom: @line-height-computed;
@@ -34,7 +34,7 @@
 }
 
 // Bar of progress
-.progress-bar {
+.IDX-progress-bar {
   float: left;
   width: 0%;
   height: 100%;
@@ -49,26 +49,26 @@
 
 // Striped bars
 //
-// `.progress-striped .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar-striped` class, which you just add to an existing
-// `.progress-bar`.
-.progress-striped .progress-bar,
-.progress-bar-striped {
+// `.IDX-progress-striped .IDX-progress-bar` is deprecated as of v3.2.0 in favor of the
+// `.IDX-progress-bar-striped` class, which you just add to an existing
+// `.IDX-progress-bar`.
+.IDX-progress-striped .IDX-progress-bar,
+.IDX-progress-bar-striped {
   #gradient > .striped();
   background-size: 40px 40px;
 }
 
 // Call animation for the active one
 //
-// `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar.active` approach.
-.progress.active .progress-bar,
-.progress-bar.active {
+// `.IDX-progress.active .IDX-progress-bar` is deprecated as of v3.2.0 in favor of the
+// `.IDX-progress-bar.active` approach.
+.IDX-progress.active .IDX-progress-bar,
+.IDX-progress-bar.active {
   .animation(progress-bar-stripes 2s linear infinite);
 }
 
 // Account for lower percentages
-.progress-bar {
+.IDX-progress-bar {
   &[aria-valuenow="1"],
   &[aria-valuenow="2"] {
     min-width: 30px;
@@ -88,18 +88,18 @@
 // Variations
 // -------------------------
 
-.progress-bar-success {
-  .progress-bar-variant(@progress-bar-success-bg);
+.IDX-progress-bar-success {
+  .IDX-progress-bar-variant(@progress-bar-success-bg);
 }
 
-.progress-bar-info {
-  .progress-bar-variant(@progress-bar-info-bg);
+.IDX-progress-bar-info {
+  .IDX-progress-bar-variant(@progress-bar-info-bg);
 }
 
-.progress-bar-warning {
-  .progress-bar-variant(@progress-bar-warning-bg);
+.IDX-progress-bar-warning {
+  .IDX-progress-bar-variant(@progress-bar-warning-bg);
 }
 
-.progress-bar-danger {
-  .progress-bar-variant(@progress-bar-danger-bg);
+.IDX-progress-bar-danger {
+  .IDX-progress-bar-variant(@progress-bar-danger-bg);
 }
