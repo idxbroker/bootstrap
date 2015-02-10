@@ -31,8 +31,14 @@ class Converter
 
     # These mixins will get vararg definitions in SCSS (not supported by LESS):
     VARARG_MIXINS               = %w(
-    scale transition transition-duration transition-property transition-transform box-shadow
-  )
+      scale transition transition-duration transition-property transition-transform box-shadow
+    )
+    # A list of classes that will be extracted into mixins
+    # Only the top-level selectors of form .CLASS { ... } are extracted. CLASS must not be used in any other rule definition.
+    # This is a work-around for libsass @extend issues
+    CLASSES_TO_MIXINS = %w(
+      list-unstyled form-inline
+    )
 
     # Convert a snippet of bootstrap LESS to Scss
     def convert_less(less)
