@@ -71,7 +71,7 @@ $(function () {
     $.support.transition = false
     stop()
 
-    var target = $('<a data-toggle="collapse" href="#test1"></a>')
+    var target = $('<a data-toggle="idx-collapse" href="#test1"></a>')
       .appendTo($('#qunit-fixture'))
 
     $('<div id="test1"></div>')
@@ -88,7 +88,7 @@ $(function () {
     $.support.transition = false
     stop()
 
-    var target = $('<a data-toggle="collapse" href="#test1"></a>')
+    var target = $('<a data-toggle="idx-collapse" href="#test1"></a>')
       .appendTo($('#qunit-fixture'))
 
     $('<div id="test1" class="IDX-in"></div>')
@@ -108,19 +108,19 @@ $(function () {
     var accordion = $('<div id="accordion"><div class="accordion-group"></div><div class="accordion-group"></div><div class="accordion-group"></div></div>')
       .appendTo($('#qunit-fixture'))
 
-    var target1 = $('<a data-toggle="collapse" href="#body1" data-parent="#accordion"></a>')
+    var target1 = $('<a data-toggle="idx-collapse" href="#body1" data-parent="#accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
     $('<div id="body1" class="in"></div>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
-    var target2 = $('<a class="collapsed" data-toggle="collapse" href="#body2" data-parent="#accordion"></a>')
+    var target2 = $('<a class="IDX-collapsed" data-toggle="idx-collapse" href="#body2" data-parent="#accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(1))
 
     $('<div id="body2"></div>')
       .appendTo(accordion.find('.accordion-group').eq(1))
 
-    var target3 = $('<a class="collapsed" data-toggle="collapse" href="#body3" data-parent="#accordion"></a>')
+    var target3 = $('<a class="IDX-collapsed" data-toggle="idx-collapse" href="#body3" data-parent="#accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(2))
 
     $('<div id="body3"></div>')
@@ -143,19 +143,19 @@ $(function () {
     var accordion = $('<div class="accordion"><div class="accordion-group"></div><div class="accordion-group"></div><div class="accordion-group"></div></div>')
       .appendTo($('#qunit-fixture'))
 
-    var target1 = $('<a data-toggle="collapse" href="#body1" data-parent=".accordion"></a>')
+    var target1 = $('<a data-toggle="idx-collapse" href="#body1" data-parent=".accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
     $('<div id="body1" class="IDX-in"></div>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
-    var target2 = $('<a class="collapsed" data-toggle="collapse" href="#body2" data-parent=".accordion"></a>')
+    var target2 = $('<a class="IDX-collapsed" data-toggle="idx-collapse" href="#body2" data-parent=".accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(1))
 
     $('<div id="body2"></div>')
       .appendTo(accordion.find('.accordion-group').eq(1))
 
-    var target3 = $('<a class="collapsed" data-toggle="collapse" href="#body3" data-parent=".accordion"></a>')
+    var target3 = $('<a class="IDX-collapsed" data-toggle="idx-collapse" href="#body3" data-parent=".accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(2))
 
     $('<div id="body3"></div>')

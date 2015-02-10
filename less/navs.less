@@ -10,7 +10,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  &:extend(.clearfix all);
+  &:extend(.IDX-clearfix all);
 
   > li {
     position: relative;
@@ -220,8 +220,8 @@
 // -------------------------
 
 // Hide tabbable panes to start, show them when `.IDX-active`
-.tab-content {
-  > .tab-pane {
+.IDX-tab-content {
+  > .IDX-tab-pane {
     display: none;
   }
   > .IDX-active {

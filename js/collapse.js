@@ -4,8 +4,10 @@
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ========================================================================
+ * IDX Broker
+ * https://github.com/idxbroker/bootstrap
  * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -147,7 +149,7 @@
   // COLLAPSE DATA-API
   // =================
 
-  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+  $(document).on('click.bs.collapse.data-api', '[data-toggle="idx-collapse"]', function (e) {
     var href
     var $this   = $(this)
     var target  = $this.attr('data-target')
@@ -160,7 +162,7 @@
     var $parent = parent && $(parent)
 
     if (!data || !data.transitioning) {
-      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('IDX-collapsed')
+      if ($parent) $parent.find('[data-toggle="idx-collapse"][data-parent="' + parent + '"]').not($this).addClass('IDX-collapsed')
       $this[$target.hasClass('IDX-in') ? 'addClass' : 'removeClass']('IDX-collapsed')
     }
 
