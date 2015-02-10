@@ -47,7 +47,7 @@
 // vertically and include a `max-height` to overflow in case you have too much
 // content for the user's viewport.
 
-.navbar-collapse {
+.IDX-navbar-collapse {
   overflow-x: visible;
   padding-right: @navbar-padding-horizontal;
   padding-left:  @navbar-padding-horizontal;
@@ -56,7 +56,7 @@
   &:extend(.IDX-clearfix all);
   -webkit-overflow-scrolling: touch;
 
-  &.in {
+  &.IDX-in {
     overflow-y: auto;
   }
 
@@ -65,31 +65,31 @@
     border-top: 0;
     box-shadow: none;
 
-    &.collapse {
+    &.IDX-collapse {
       display: block !important;
       height: auto !important;
       padding-bottom: 0; // Override default setting
       overflow: visible !important;
     }
 
-    &.in {
+    &.IDX-in {
       overflow-y: visible;
     }
 
     // Undo the collapse side padding for navbars with containers to ensure
     // alignment of right-aligned contents.
-    .navbar-fixed-top &,
-    .navbar-static-top &,
-    .navbar-fixed-bottom & {
+    .IDX-navbar-fixed-top &,
+    .IDX-navbar-static-top &,
+    .IDX-navbar-fixed-bottom & {
       padding-left: 0;
       padding-right: 0;
     }
   }
 }
 
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  .navbar-collapse {
+.IDX-navbar-fixed-top,
+.IDX-navbar-fixed-bottom {
+  .IDX-navbar-collapse {
     max-height: @navbar-collapse-max-height;
 
     @media (max-width: @screen-xs-min) and (orientation: landscape) {
@@ -103,10 +103,10 @@
 //
 // When a container is present, change the behavior of the header and collapse.
 
-.container,
-.container-fluid {
-  > .navbar-header,
-  > .navbar-collapse {
+.IDX-container,
+.IDX-container-fluid {
+  > .IDX-navbar-header,
+  > .IDX-navbar-collapse {
     margin-right: -@navbar-padding-horizontal;
     margin-left:  -@navbar-padding-horizontal;
 
@@ -125,7 +125,7 @@
 // bottom of the page.
 
 // Static top (unfixed, but 100% wide) navbar
-.navbar-static-top {
+.IDX-navbar-static-top {
   z-index: @zindex-navbar;
   border-width: 0 0 1px;
 
@@ -135,8 +135,8 @@
 }
 
 // Fix the top/bottom navbars when screen real estate supports it
-.navbar-fixed-top,
-.navbar-fixed-bottom {
+.IDX-navbar-fixed-top,
+.IDX-navbar-fixed-bottom {
   position: fixed;
   right: 0;
   left: 0;
@@ -148,11 +148,11 @@
     border-radius: 0;
   }
 }
-.navbar-fixed-top {
+.IDX-navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
 }
-.navbar-fixed-bottom {
+.IDX-navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0; // override .navbar defaults
   border-width: 1px 0 0;
@@ -161,7 +161,7 @@
 
 // Brand/project name
 
-.navbar-brand {
+.IDX-navbar-brand {
   float: left;
   padding: @navbar-padding-vertical @navbar-padding-horizontal;
   font-size: @font-size-large;
@@ -174,8 +174,8 @@
   }
 
   @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
+    .navbar > .IDX-container &,
+    .navbar > .IDX-container-fluid & {
       margin-left: -@navbar-padding-horizontal;
     }
   }
@@ -187,7 +187,7 @@
 // Custom button for toggling the `.navbar-collapse`, powered by the collapse
 // JavaScript plugin.
 
-.navbar-toggle {
+.IDX-navbar-toggle {
   position: relative;
   float: right;
   margin-right: @navbar-padding-horizontal;
@@ -205,13 +205,13 @@
   }
 
   // Bars
-  .icon-bar {
+  .IDX-icon-bar {
     display: block;
     width: 22px;
     height: 2px;
     border-radius: 1px;
   }
-  .icon-bar + .icon-bar {
+  .IDX-icon-bar + .IDX-icon-bar {
     margin-top: 4px;
   }
 
@@ -226,7 +226,7 @@
 // Builds on top of the `.nav` components with its own modifier class to make
 // the nav the full height of the horizontal nav (above 768px).
 
-.navbar-nav {
+.IDX-navbar-nav {
   margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
 
   > li > a {
@@ -237,7 +237,7 @@
 
   @media (max-width: @grid-float-breakpoint-max) {
     // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
+    .IDX-open .IDX-dropdown-menu {
       position: static;
       float: none;
       width: auto;
@@ -246,7 +246,7 @@
       border: 0;
       box-shadow: none;
       > li > a,
-      .dropdown-header {
+      .IDX-dropdown-header {
         padding: 5px 15px 5px 25px;
       }
       > li > a {
@@ -272,7 +272,7 @@
       }
     }
 
-    &.navbar-right:last-child {
+    &.IDX-navbar-right:last-child {
       margin-right: -@navbar-padding-horizontal;
     }
   }
@@ -328,7 +328,7 @@
     .box-shadow(none);
 
     // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
+    &.IDX-navbar-right:last-child {
       margin-right: -@navbar-padding-horizontal;
     }
   }
@@ -343,7 +343,7 @@
   .border-top-radius(0);
 }
 // Menu position and menu caret support for dropups via extra dropup class
-.IDX-navbar-fixed-bottom .navbar-nav > li > .IDX-dropdown-menu {
+.IDX-navbar-fixed-bottom .IDX-navbar-nav > li > .IDX-dropdown-menu {
   .border-bottom-radius(0);
 }
 
@@ -414,7 +414,7 @@
         background-color: @navbar-default-link-hover-bg;
       }
     }
-    > .active > a {
+    > .IDX-active > a {
       &,
       &:hover,
       &:focus {
@@ -471,7 +471,7 @@
             background-color: @navbar-default-link-hover-bg;
           }
         }
-        > .active > a {
+        > .IDX-active > a {
           &,
           &:hover,
           &:focus {
