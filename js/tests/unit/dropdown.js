@@ -29,81 +29,81 @@ $(function () {
 
   test('should not open dropdown if target is disabled', function () {
     var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<button disabled href="#" class="btn dropdown-toggle" data-toggle="dropdown">Dropdown</button>' +
-        '<ul class="dropdown-menu">' +
+        '<li class="IDX-dropdown">' +
+        '<button disabled href="#" class="IDX-btn IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</button>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
         '</ul>'
     var dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown().click()
 
-    ok(!dropdown.parent('.dropdown').hasClass('open'), 'open class added on click')
+    ok(!dropdown.parent('.dropdown').hasClass('IDX-open'), 'IDX-open class added on click')
   })
 
   test('should not open dropdown if target is disabled', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<button href="#" class="btn dropdown-toggle disabled" data-toggle="dropdown">Dropdown</button>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<button href="#" class="IDX-btn IDX-dropdown-toggle IDX-disabled" data-toggle="dropdown">Dropdown</button>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
         '</ul>'
     var dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown().click()
 
-    ok(!dropdown.parent('.dropdown').hasClass('open'), 'open class added on click')
+    ok(!dropdown.parent('.IDX-dropdown').hasClass('IDX-open'), 'IDX-open class added on click')
   })
 
   test('should add class open to menu if clicked', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<a href="#" class="IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
         '</ul>'
     var dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown().click()
 
-    ok(dropdown.parent('.dropdown').hasClass('open'), 'open class added on click')
+    ok(dropdown.parent('.IDX-dropdown').hasClass('IDX-open'), 'IDX-open class added on click')
   })
 
   test('should test if element has a # before assuming it\'s a selector', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<a href="/foo/" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<a href="/foo/" class="IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
         '</ul>'
     var dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown().click()
 
-    ok(dropdown.parent('.dropdown').hasClass('open'), 'open class added on click')
+    ok(dropdown.parent('.IDX-dropdown').hasClass('IDX-open'), 'open class added on click')
   })
 
 
   test('should remove open class if body clicked', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<a href="#" class="IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
@@ -114,25 +114,25 @@ $(function () {
           .bootstrapDropdown()
           .click()
 
-    ok(dropdown.parent('.dropdown').hasClass('open'), 'open class added on click')
+    ok(dropdown.parent('.IDX-dropdown').hasClass('IDX-open'), 'IDX-open class added on click')
     $('body').click()
-    ok(!dropdown.parent('.dropdown').hasClass('open'), 'open class removed')
+    ok(!dropdown.parent('.IDX-dropdown').hasClass('IDX-open'), 'IDX-open class removed')
     dropdown.remove()
   })
 
   test('should remove open class if body clicked, with multiple drop downs', function () {
-    var dropdownHTML = '<ul class="nav">' +
+    var dropdownHTML = '<ul class="IDX-nav">' +
         '    <li><a href="#menu1">Menu 1</a></li>' +
-        '    <li class="dropdown" id="testmenu">' +
-        '      <a class="dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <b class="caret"></b></a>' +
-        '      <ul class="dropdown-menu" role="menu">' +
+        '    <li class="IDX-dropdown" id="testmenu">' +
+        '      <a class="IDX-dropdown-toggle" data-toggle="dropdown" href="#testmenu">Test menu <b class="caret"></b></a>' +
+        '      <ul class="IDX-dropdown-menu" role="menu">' +
         '        <li><a href="#sub1">Submenu 1</a></li>' +
         '      </ul>' +
         '    </li>' +
         '</ul>' +
-        '<div class="btn-group">' +
-        '    <button class="btn">Actions</button>' +
-        '    <button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>' +
+        '<div class="IDX-btn-group">' +
+        '    <button class="IDX-btn">Actions</button>' +
+        '    <button class="IDX-btn IDX-dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>' +
         '    <ul class="dropdown-menu">' +
         '        <li><a href="#">Action 1</a></li>' +
         '    </ul>' +
@@ -144,28 +144,28 @@ $(function () {
     ok(dropdowns.length == 2, 'Should be two dropdowns')
 
     first.click()
-    ok(first.parents('.open').length == 1, 'open class added on click')
-    ok($('#qunit-fixture .open').length == 1, 'only one object is open')
+    ok(first.parents('.IDX-open').length == 1, 'open class added on click')
+    ok($('#qunit-fixture .IDX-open').length == 1, 'only one object is open')
     $('body').click()
-    ok($('#qunit-fixture .open').length === 0, 'open class removed')
+    ok($('#qunit-fixture .IDX-open').length === 0, 'open class removed')
 
     last.click()
-    ok(last.parent('.open').length == 1, 'open class added on click')
-    ok($('#qunit-fixture .open').length == 1, 'only one object is open')
+    ok(last.parent('.IDX-open').length == 1, 'open class added on click')
+    ok($('#qunit-fixture .IDX-open').length == 1, 'only one object is open')
     $('body').click()
-    ok($('#qunit-fixture .open').length === 0, 'open class removed')
+    ok($('#qunit-fixture .IDX-open').length === 0, 'open class removed')
 
     $('#qunit-fixture').html('')
   })
 
   test('should fire show and hide event', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<a href="#" class="IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
@@ -178,12 +178,12 @@ $(function () {
     stop()
 
     dropdown
-      .parent('.dropdown')
+      .parent('.IDX-dropdown')
       .on('show.bs.dropdown', function () {
-        ok(true, 'show was called')
+        ok(true, 'IDX-show was called')
       })
       .on('hide.bs.dropdown', function () {
-        ok(true, 'hide was called')
+        ok(true, 'IDX-hide was called')
         start()
       })
 
@@ -193,13 +193,13 @@ $(function () {
 
 
   test('should fire shown and hiden event', function () {
-    var dropdownHTML = '<ul class="tabs">' +
-        '<li class="dropdown">' +
-        '<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropdownHTML = '<ul class="IDX-tabs">' +
+        '<li class="IDX-dropdown">' +
+        '<a href="#" class="IDX-dropdown-toggle" data-toggle="dropdown">Dropdown</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#">Secondary link</a></li>' +
         '<li><a href="#">Something else here</a></li>' +
-        '<li class="divider"></li>' +
+        '<li class="IDX-divider"></li>' +
         '<li><a href="#">Another link</a></li>' +
         '</ul>' +
         '</li>' +
@@ -212,7 +212,7 @@ $(function () {
     stop()
 
     dropdown
-      .parent('.dropdown')
+      .parent('.IDX-dropdown')
       .on('shown.bs.dropdown', function () {
         ok(true, 'show was called')
       })

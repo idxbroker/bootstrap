@@ -81,45 +81,45 @@ $(function () {
     }, 0)
   })
 
-  test('should toggle active', function () {
+  test('should toggle IDX-active', function () {
     var btn = $('<button class="btn">mdo</button>')
-    ok(!btn.hasClass('active'), 'btn does not have active class')
+    ok(!btn.hasClass('IDX-active'), 'btn does not have IDX-active class')
     btn.bootstrapButton('toggle')
-    ok(btn.hasClass('active'), 'btn has class active')
+    ok(btn.hasClass('IDX-active'), 'btn has class IDX-active')
   })
 
-  test('should toggle active when btn children are clicked', function () {
-    var btn = $('<button class="btn" data-toggle="button">mdo</button>')
+  test('should toggle IDX-active when btn children are clicked', function () {
+    var btn = $('<button class="IDX-btn" data-toggle="button">mdo</button>')
     var inner = $('<i></i>')
     btn
       .append(inner)
       .appendTo($('#qunit-fixture'))
-    ok(!btn.hasClass('active'), 'btn does not have active class')
+    ok(!btn.hasClass('IDX-active'), 'btn does not have IDX-active class')
     inner.click()
-    ok(btn.hasClass('active'), 'btn has class active')
+    ok(btn.hasClass('IDX-active'), 'btn has class IDX-active')
   })
 
-  test('should toggle active when btn children are clicked within btn-group', function () {
-    var btngroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    var btn = $('<button class="btn">fat</button>')
+  test('should toggle IDX-active when btn children are clicked within btn-group', function () {
+    var btngroup = $('<div class="IDX-btn-group" data-toggle="buttons"></div>')
+    var btn = $('<button class="IDX-btn">fat</button>')
     var inner = $('<i></i>')
     btngroup
       .append(btn.append(inner))
       .appendTo($('#qunit-fixture'))
-    ok(!btn.hasClass('active'), 'btn does not have active class')
+    ok(!btn.hasClass('IDX-active'), 'btn does not have IDX-active class')
     inner.click()
-    ok(btn.hasClass('active'), 'btn has class active')
+    ok(btn.hasClass('IDX-active'), 'btn has class IDX-active')
   })
 
   test('should check for closest matching toggle', function () {
-    var group = '<div class="btn-group" data-toggle="buttons">' +
-      '<label class="btn btn-primary active">' +
+    var group = '<div class="IDX-btn-group" data-toggle="buttons">' +
+      '<label class="IDX-btn IDX-btn-primary IDX-active">' +
         '<input type="radio" name="options" id="option1" checked="true"> Option 1' +
       '</label>' +
-      '<label class="btn btn-primary">' +
+      '<label class="IDX-btn IDX-btn-primary">' +
         '<input type="radio" name="options" id="option2"> Option 2' +
       '</label>' +
-      '<label class="btn btn-primary">' +
+      '<label class="IDX-btn IDX-btn-primary">' +
         '<input type="radio" name="options" id="option3"> Option 3' +
       '</label>' +
     '</div>'
@@ -131,20 +131,20 @@ $(function () {
 
     group.appendTo($('#qunit-fixture'))
 
-    ok(btn1.hasClass('active'), 'btn1 has active class')
+    ok(btn1.hasClass('IDX-active'), 'btn1 has IDX-active class')
     ok(btn1.find('input').prop('checked'), 'btn1 is checked')
-    ok(!btn2.hasClass('active'), 'btn2 does not have active class')
+    ok(!btn2.hasClass('IDX-active'), 'btn2 does not have IDX-active class')
     ok(!btn2.find('input').prop('checked'), 'btn2 is not checked')
     btn2.find('input').click()
-    ok(!btn1.hasClass('active'), 'btn1 does not have active class')
+    ok(!btn1.hasClass('IDX-active'), 'btn1 does not have IDX-active class')
     ok(!btn1.find('input').prop('checked'), 'btn1 is checked')
-    ok(btn2.hasClass('active'), 'btn2 has active class')
+    ok(btn2.hasClass('IDX-active'), 'btn2 has IDX-active class')
     ok(btn2.find('input').prop('checked'), 'btn2 is checked')
 
     btn2.find('input').click() /* clicking an already checked radio should not un-check it */
-    ok(!btn1.hasClass('active'), 'btn1 does not have active class')
+    ok(!btn1.hasClass('IDX-active'), 'btn1 does not have IDX-active class')
     ok(!btn1.find('input').prop('checked'), 'btn1 is checked')
-    ok(btn2.hasClass('active'), 'btn2 has active class')
+    ok(btn2.hasClass('IDX-active'), 'btn2 has IDX-active class')
     ok(btn2.find('input').prop('checked'), 'btn2 is checked')
   })
 

@@ -34,9 +34,9 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapPopover('show')
 
-    ok($('.popover').length, 'popover was inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover removed')
+    ok(!$('.IDX-popover').length, 'popover removed')
   })
 
   test('should store popover instance in popover data object', function () {
@@ -53,7 +53,7 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapPopover()
     popover.bootstrapPopover('show')
-    ok(!!$('.popover').data('bs.popover'), 'popover trigger stored in instance data')
+    ok(!!$('.IDX-popover').data('bs.popover'), 'popover trigger stored in instance data')
     $('#qunit-fixture').empty()
   })
 
@@ -72,12 +72,12 @@ $(function () {
 
     popover.bootstrapPopover('show')
 
-    ok($('.popover').length, 'popover was inserted')
-    equal($('.popover .popover-title').text(), '@fat', 'title correctly inserted')
-    equal($('.popover .popover-content').text(), 'loves writing tests （╯°□°）╯︵ ┻━┻', 'content correctly inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
+    equal($('.IDX-popover .IDX-popover-title').text(), '@fat', 'title correctly inserted')
+    equal($('.IDX-popover .IDX-popover-content').text(), 'loves writing tests （╯°□°）╯︵ ┻━┻', 'content correctly inserted')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'popover was removed')
     $('#qunit-fixture').empty()
   })
 
@@ -95,18 +95,18 @@ $(function () {
       })
 
     popover.bootstrapPopover('show')
-    ok($('.popover').length, 'popover was inserted')
-    equal($('.popover .popover-content').html(), $div, 'content correctly inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
+    equal($('.IDX-popover .IDX-popover-content').html(), $div, 'content correctly inserted')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'popover was removed')
 
     popover.bootstrapPopover('show')
-    ok($('.popover').length, 'popover was inserted')
-    equal($('.popover .popover-content').html(), $div, 'content correctly inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
+    equal($('.IDX-popover .IDX-popover-content').html(), $div, 'content correctly inserted')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'popover was removed')
     $('#qunit-fixture').empty()
   })
 
@@ -117,12 +117,12 @@ $(function () {
       .bootstrapPopover()
       .bootstrapPopover('show')
 
-    ok($('.popover').length, 'popover was inserted')
-    equal($('.popover .popover-title').text(), '@mdo', 'title correctly inserted')
-    equal($('.popover .popover-content').text(), 'loves data attributes (づ｡◕‿‿◕｡)づ ︵ ┻━┻', 'content correctly inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
+    equal($('.IDX-popover .IDX-popover-title').text(), '@mdo', 'title correctly inserted')
+    equal($('.IDX-popover .IDX-popover-content').text(), 'loves data attributes (づ｡◕‿‿◕｡)づ ︵ ┻━┻', 'content correctly inserted')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'popover was removed')
     $('#qunit-fixture').empty()
   })
 
@@ -137,12 +137,12 @@ $(function () {
       })
       .bootstrapPopover('show')
 
-    ok($('.popover').length, 'popover was inserted')
-    equal($('.popover .popover-title').text(), '@mdo', 'title correctly inserted')
-    equal($('.popover .popover-content').text(), 'loves data attributes (づ｡◕‿‿◕｡)づ ︵ ┻━┻', 'content correctly inserted')
+    ok($('.IDX-popover').length, 'popover was inserted')
+    equal($('.IDX-popover .IDX-popover-title').text(), '@mdo', 'title correctly inserted')
+    equal($('.IDX-popover .IDX-popover-content').text(), 'loves data attributes (づ｡◕‿‿◕｡)づ ︵ ┻━┻', 'content correctly inserted')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'IDX-popover was removed')
     $('#qunit-fixture').empty()
   })
 
@@ -153,16 +153,16 @@ $(function () {
       .bootstrapPopover({
         title: 'Test',
         content: 'Test',
-        template: '<div class="popover foobar"><div class="arrow"></div><div class="inner"><h3 class="title"></h3><div class="content"><p></p></div></div></div>'
+        template: '<div class="IDX-popover IDX-foobar"><div class="IDX-arrow"></div><div class="IDX-inner"><h3 class="title"></h3><div class="content"><p></p></div></div></div>'
       })
 
     popover.bootstrapPopover('show')
 
-    ok($('.popover').length, 'popover was inserted')
-    ok($('.popover').hasClass('foobar'), 'custom class is present')
+    ok($('.IDX-popover').length, 'IDX-popover was inserted')
+    ok($('.IDX-popover').hasClass('IDX-foobar'), 'custom class is present')
 
     popover.bootstrapPopover('hide')
-    ok(!$('.popover').length, 'popover was removed')
+    ok(!$('.IDX-popover').length, 'IDX-popover was removed')
     $('#qunit-fixture').empty()
   })
 
@@ -175,7 +175,7 @@ $(function () {
     ok($._data(popover[0], 'events').click[0].namespace == 'foo', 'popover has extra click.foo event')
     popover.bootstrapPopover('show')
     popover.bootstrapPopover('destroy')
-    ok(!popover.hasClass('in'), 'popover is hidden')
+    ok(!popover.hasClass('IDX-in'), 'popover is hidden')
     ok(!popover.data('popover'), 'popover does not have data')
     ok($._data(popover[0], 'events').click[0].namespace == 'foo', 'popover still has click.foo')
     ok(!$._data(popover[0], 'events').mouseover && !$._data(popover[0], 'events').mouseout, 'popover does not have any events')

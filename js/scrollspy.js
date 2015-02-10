@@ -107,8 +107,8 @@
     this.activeTarget = target
 
     $(this.selector)
-      .parentsUntil(this.options.target, '.active')
-      .removeClass('active')
+      .parentsUntil(this.options.target, '.IDX-active')
+      .removeClass('IDX-active')
 
     var selector = this.selector +
         '[data-target="' + target + '"],' +
@@ -116,12 +116,12 @@
 
     var active = $(selector)
       .parents('li')
-      .addClass('active')
+      .addClass('IDX-active')
 
-    if (active.parent('.dropdown-menu').length) {
+    if (active.parent('.IDX-dropdown-menu').length) {
       active = active
-        .closest('li.dropdown')
-        .addClass('active')
+        .closest('li.IDX-dropdown')
+        .addClass('IDX-active')
     }
 
     active.trigger('activate.bs.scrollspy')

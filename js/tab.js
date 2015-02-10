@@ -29,9 +29,9 @@
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    if ($this.parent('li').hasClass('active')) return
+    if ($this.parent('li').hasClass('IDX-active')) return
 
-    var previous = $ul.find('.active:last a')[0]
+    var previous = $ul.find('.IDX-active:last a')[0]
     var e        = $.Event('show.bs.tab', {
       relatedTarget: previous
     })
@@ -52,28 +52,28 @@
   }
 
   Tab.prototype.activate = function (element, container, callback) {
-    var $active    = container.find('> .active')
+    var $active    = container.find('> .IDX-active')
     var transition = callback
       && $.support.transition
-      && $active.hasClass('fade')
+      && $active.hasClass('IDX-fade')
 
     function next() {
       $active
-        .removeClass('active')
-        .find('> .dropdown-menu > .active')
-        .removeClass('active')
+        .removeClass('IDX-active')
+        .find('> .IDX-dropdown-menu > .IDX-active')
+        .removeClass('IDX-active')
 
-      element.addClass('active')
+      element.addClass('IDX-active')
 
       if (transition) {
         element[0].offsetWidth // reflow for transition
-        element.addClass('in')
+        element.addClass('IDX-in')
       } else {
-        element.removeClass('fade')
+        element.removeClass('IDX-fade')
       }
 
-      if (element.parent('.dropdown-menu')) {
-        element.closest('li.dropdown').addClass('active')
+      if (element.parent('.IDX-dropdown-menu')) {
+        element.closest('li.IDX-dropdown').addClass('IDX-active')
       }
 
       callback && callback()
@@ -85,7 +85,7 @@
         .emulateTransitionEnd(150) :
       next()
 
-    $active.removeClass('in')
+    $active.removeClass('IDX-in')
   }
 
 

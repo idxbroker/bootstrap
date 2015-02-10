@@ -27,21 +27,21 @@ $(function () {
   })
 
   test('should show a collapsed element', function () {
-    var el = $('<div class="collapse"></div>').bootstrapCollapse('show')
-    ok(el.hasClass('in'), 'has class in')
+    var el = $('<div class="IDX-collapse"></div>').bootstrapCollapse('show')
+    ok(el.hasClass('IDX-in'), 'has class IDX-in')
     ok(!/height/.test(el.attr('style')), 'has height reset')
   })
 
   test('should hide a collapsed element', function () {
-    var el = $('<div class="collapse"></div>').bootstrapCollapse('hide')
-    ok(!el.hasClass('in'), 'does not have class in')
+    var el = $('<div class="IDX-collapse"></div>').bootstrapCollapse('hide')
+    ok(!el.hasClass('IDX-in'), 'does not have class in')
     ok(/height/.test(el.attr('style')), 'has height set')
   })
 
   test('should not fire shown when show is prevented', function () {
     $.support.transition = false
     stop()
-    $('<div class="collapse"/>')
+    $('<div class="IDX-collapse"/>')
       .on('show.bs.collapse', function (e) {
         e.preventDefault()
         ok(true)
@@ -56,7 +56,7 @@ $(function () {
   test('should reset style to auto after finishing opening collapse', function () {
     $.support.transition = false
     stop()
-    $('<div class="collapse" style="height: 0px"/>')
+    $('<div class="IDX-collapse" style="height: 0px"/>')
       .on('show.bs.collapse', function () {
         ok(this.style.height == '0px')
       })
@@ -77,7 +77,7 @@ $(function () {
     $('<div id="test1"></div>')
       .appendTo($('#qunit-fixture'))
       .on('show.bs.collapse', function () {
-        ok(!target.hasClass('collapsed'))
+        ok(!target.hasClass('IDX-collapsed'))
         start()
       })
 
@@ -91,10 +91,10 @@ $(function () {
     var target = $('<a data-toggle="collapse" href="#test1"></a>')
       .appendTo($('#qunit-fixture'))
 
-    $('<div id="test1" class="in"></div>')
+    $('<div id="test1" class="IDX-in"></div>')
       .appendTo($('#qunit-fixture'))
       .on('hide.bs.collapse', function () {
-        ok(target.hasClass('collapsed'))
+        ok(target.hasClass('IDX-collapsed'))
         start()
       })
 
@@ -126,9 +126,9 @@ $(function () {
     $('<div id="body3"></div>')
       .appendTo(accordion.find('.accordion-group').eq(2))
       .on('show.bs.collapse', function () {
-        ok(target1.hasClass('collapsed'))
-        ok(target2.hasClass('collapsed'))
-        ok(!target3.hasClass('collapsed'))
+        ok(target1.hasClass('IDX-collapsed'))
+        ok(target2.hasClass('IDX-collapsed'))
+        ok(!target3.hasClass('IDX-collapsed'))
 
         start()
       })
@@ -146,7 +146,7 @@ $(function () {
     var target1 = $('<a data-toggle="collapse" href="#body1" data-parent=".accordion"></a>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
-    $('<div id="body1" class="in"></div>')
+    $('<div id="body1" class="IDX-in"></div>')
       .appendTo(accordion.find('.accordion-group').eq(0))
 
     var target2 = $('<a class="collapsed" data-toggle="collapse" href="#body2" data-parent=".accordion"></a>')
@@ -161,9 +161,9 @@ $(function () {
     $('<div id="body3"></div>')
       .appendTo(accordion.find('.accordion-group').eq(2))
       .on('show.bs.collapse', function () {
-        ok(target1.hasClass('collapsed'))
-        ok(target2.hasClass('collapsed'))
-        ok(!target3.hasClass('collapsed'))
+        ok(target1.hasClass('IDX-collapsed'))
+        ok(target2.hasClass('IDX-collapsed'))
+        ok(!target3.hasClass('IDX-collapsed'))
 
         start()
       })

@@ -24,7 +24,7 @@
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
 
-    if ($this.is('.disabled, :disabled')) return
+    if ($this.is('.IDX-disabled, :disabled')) return
 
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
@@ -32,7 +32,7 @@
     clearMenus()
 
     if (!isActive) {
-      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.IDX-navbar-nav').length) {
         // if mobile we use a backdrop because click events don't delegate
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
@@ -45,7 +45,7 @@
       $this.trigger('focus')
 
       $parent
-        .toggleClass('open')
+        .toggleClass('IDX-open')
         .trigger('shown.bs.dropdown', relatedTarget)
     }
 
@@ -60,10 +60,10 @@
     e.preventDefault()
     e.stopPropagation()
 
-    if ($this.is('.disabled, :disabled')) return
+    if ($this.is('.IDX-disabled, :disabled')) return
 
     var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+    var isActive = $parent.hasClass('IDX-open')
 
     if (!isActive || (isActive && e.keyCode == 27)) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
@@ -90,10 +90,10 @@
     $(toggle).each(function () {
       var $parent = getParent($(this))
       var relatedTarget = { relatedTarget: this }
-      if (!$parent.hasClass('open')) return
+      if (!$parent.hasClass('IDX-open')) return
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
       if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+      $parent.removeClass('IDX-open').trigger('hidden.bs.dropdown', relatedTarget)
     })
   }
 

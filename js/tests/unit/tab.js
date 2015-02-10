@@ -27,7 +27,7 @@ $(function () {
   })
 
   test('should activate element by tab id', function () {
-    var tabsHTML = '<ul class="tabs">' +
+    var tabsHTML = '<ul class="IDX-tabs">' +
         '<li><a href="#home">Home</a></li>' +
         '<li><a href="#profile">Profile</a></li>' +
         '</ul>'
@@ -35,14 +35,14 @@ $(function () {
     $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo('#qunit-fixture')
 
     $(tabsHTML).find('li:last a').bootstrapTab('show')
-    equal($('#qunit-fixture').find('.active').attr('id'), 'profile')
+    equal($('#qunit-fixture').find('.IDX-active').attr('id'), 'profile')
 
     $(tabsHTML).find('li:first a').bootstrapTab('show')
-    equal($('#qunit-fixture').find('.active').attr('id'), 'home')
+    equal($('#qunit-fixture').find('.IDX-active').attr('id'), 'home')
   })
 
   test('should activate element by tab id', function () {
-    var pillsHTML = '<ul class="pills">' +
+    var pillsHTML = '<ul class="IDX-pills">' +
         '<li><a href="#home">Home</a></li>' +
         '<li><a href="#profile">Profile</a></li>' +
         '</ul>'
@@ -50,17 +50,17 @@ $(function () {
     $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo('#qunit-fixture')
 
     $(pillsHTML).find('li:last a').bootstrapTab('show')
-    equal($('#qunit-fixture').find('.active').attr('id'), 'profile')
+    equal($('#qunit-fixture').find('.IDX-active').attr('id'), 'profile')
 
     $(pillsHTML).find('li:first a').bootstrapTab('show')
-    equal($('#qunit-fixture').find('.active').attr('id'), 'home')
+    equal($('#qunit-fixture').find('.IDX-active').attr('id'), 'home')
   })
 
 
   test('should not fire closed when close is prevented', function () {
     $.support.transition = false
     stop()
-    $('<div class="tab"/>')
+    $('<div class="IDX-tab"/>')
       .on('show.bs.tab', function (e) {
         e.preventDefault()
         ok(true)
@@ -73,9 +73,9 @@ $(function () {
   })
 
   test('show and shown events should reference correct relatedTarget', function () {
-    var dropHTML = '<ul class="drop">' +
-        '<li class="dropdown"><a data-toggle="dropdown" href="#">1</a>' +
-        '<ul class="dropdown-menu">' +
+    var dropHTML = '<ul class="IDX-drop">' +
+        '<li class="IDX-dropdown"><a data-toggle="dropdown" href="#">1</a>' +
+        '<ul class="IDX-dropdown-menu">' +
         '<li><a href="#1-1" data-toggle="tab">1-1</a></li>' +
         '<li><a href="#1-2" data-toggle="tab">1-2</a></li>' +
         '</ul>' +
