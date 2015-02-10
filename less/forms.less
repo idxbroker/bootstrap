@@ -112,7 +112,7 @@ output {
 // input[type="tel"]
 // input[type="color"]
 
-.form-control {
+.IDX-form-control {
   display: block;
   width: 100%;
   height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
@@ -181,10 +181,10 @@ input[type="month"] {
   // IE8+ misaligns the text within date inputs, so we reset
   line-height: @line-height-base ~"\0";
 
-  &.input-sm {
+  &.IDX-input-sm {
     line-height: @input-height-small;
   }
-  &.input-lg {
+  &.IDX-input-lg {
     line-height: @input-height-large;
   }
 }
@@ -195,7 +195,7 @@ input[type="month"] {
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
 
-.form-group {
+.IDX-form-group {
   margin-bottom: 15px;
 }
 
@@ -204,8 +204,8 @@ input[type="month"] {
 //
 // Indent the labels to position radios/checkboxes as hanging controls.
 
-.radio,
-.checkbox {
+.IDX-radio,
+.IDX-checkbox {
   position: relative;
   display: block;
   min-height: @line-height-computed; // clear the floating input if there is no label text
@@ -219,23 +219,23 @@ input[type="month"] {
     cursor: pointer;
   }
 }
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
+.IDX-radio input[type="radio"],
+.IDX-radio-inline input[type="radio"],
+.IDX-checkbox input[type="checkbox"],
+.IDX-checkbox-inline input[type="checkbox"] {
   position: absolute;
   margin-left: -20px;
   margin-top: 4px \9;
 }
 
-.radio + .radio,
-.checkbox + .checkbox {
+.IDX-radio + .IDX-radio,
+.IDX-checkbox + .IDX-checkbox {
   margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
 }
 
 // Radios and checkboxes on same line
-.radio-inline,
-.checkbox-inline {
+.IDX-radio-inline,
+.IDX-checkbox-inline {
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -243,8 +243,8 @@ input[type="month"] {
   font-weight: normal;
   cursor: pointer;
 }
-.radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
+.IDX-radio-inline + .IDX-radio-inline,
+.IDX-checkbox-inline + .IDX-checkbox-inline {
   margin-top: 0;
   margin-left: 10px; // space out consecutive inline controls
 }
@@ -262,16 +262,16 @@ input[type="checkbox"] {
   }
 }
 // These classes are used directly on <label>s
-.radio-inline,
-.checkbox-inline {
+.IDX-radio-inline,
+.IDX-checkbox-inline {
   &.disabled,
   fieldset[disabled] & {
     cursor: not-allowed;
   }
 }
 // These classes are used on elements with <label> descendants
-.radio,
-.checkbox {
+.IDX-radio,
+.IDX-checkbox {
   &.disabled,
   fieldset[disabled] & {
     label {
@@ -286,7 +286,7 @@ input[type="checkbox"] {
 // Apply class to a `p` element to make any string of text align with labels in
 // a horizontal form layout.
 
-.form-control-static {
+.IDX-form-control-static {
   // Size it appropriately next to real form controls
   padding-top: (@padding-base-vertical + 1);
   padding-bottom: (@padding-base-vertical + 1);
@@ -306,11 +306,11 @@ input[type="checkbox"] {
 // Build on `.form-control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
 
-.input-sm {
+.IDX-input-sm {
   .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
 }
 
-.input-lg {
+.IDX-input-lg {
   .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
 }
 
@@ -319,7 +319,7 @@ input[type="checkbox"] {
 //
 // Apply contextual and semantic states to individual form controls.
 
-.has-feedback {
+.IDX-has-feedback {
   // Enable absolute positioning
   position: relative;
 
@@ -329,7 +329,7 @@ input[type="checkbox"] {
   }
 }
 // Feedback icon (requires .glyphicon classes)
-.form-control-feedback {
+.IDX-form-control-feedback {
   position: absolute;
   top: (@line-height-computed + 5); // Height of the `label` and its margin
   right: 0;
@@ -340,31 +340,31 @@ input[type="checkbox"] {
   line-height: @input-height-base;
   text-align: center;
 }
-.input-lg + .form-control-feedback {
+.IDX-input-lg + .IDX-form-control-feedback {
   width: @input-height-large;
   height: @input-height-large;
   line-height: @input-height-large;
 }
-.input-sm + .form-control-feedback {
+.IDX-input-sm + .IDX-form-control-feedback {
   width: @input-height-small;
   height: @input-height-small;
   line-height: @input-height-small;
 }
 
 // Feedback states
-.has-success {
+.IDX-has-success {
   .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
 }
-.has-warning {
+.IDX-has-warning {
   .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
 }
-.has-error {
+.IDX-has-error {
   .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
 }
 
 
 // Reposition feedback icon if label is hidden with "screenreader only" state
-.has-feedback label.sr-only ~ .form-control-feedback {
+.IDX-has-feedback label.sr-only ~ .IDX-form-control-feedback {
   top: 0;
 }
 
@@ -374,7 +374,7 @@ input[type="checkbox"] {
 // Apply to any element you wish to create light text for placement immediately
 // below a form control. Use for general help, formatting, or instructional text.
 
-.help-block {
+.IDX-help-block {
   display: block; // account for any element using help-block
   margin-top: 5px;
   margin-bottom: 10px;
@@ -394,7 +394,7 @@ input[type="checkbox"] {
 //
 // Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
 
-.form-inline {
+.IDX-form-inline {
 
   // Kick in the inline
   @media (min-width: @screen-sm-min) {
@@ -406,13 +406,13 @@ input[type="checkbox"] {
     }
 
     // In navbar-form, allow folks to *not* use `.form-group`
-    .form-control {
+    .IDX-form-control {
       display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
     }
 
-    .input-group {
+    .IDX-input-group {
       display: inline-table;
       vertical-align: middle;
 
@@ -424,11 +424,11 @@ input[type="checkbox"] {
     }
 
     // Input groups need that 100% width though
-    .input-group > .form-control {
+    .IDX-input-group > .IDX-form-control {
       width: 100%;
     }
 
-    .control-label {
+    .IDX-control-label {
       margin-bottom: 0;
       vertical-align: middle;
     }
@@ -436,8 +436,8 @@ input[type="checkbox"] {
     // Remove default margin on radios/checkboxes that were used for stacking, and
     // then undo the floating of radios and checkboxes to match (which also avoids
     // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
-    .radio,
-    .checkbox {
+    .IDX-radio,
+    .IDX-checkbox {
       display: inline-block;
       margin-top: 0;
       margin-bottom: 0;
@@ -447,8 +447,8 @@ input[type="checkbox"] {
         padding-left: 0;
       }
     }
-    .radio input[type="radio"],
-    .checkbox input[type="checkbox"] {
+    .IDX-radio input[type="radio"],
+    .IDX-checkbox input[type="checkbox"] {
       position: relative;
       margin-left: 0;
     }
@@ -457,7 +457,7 @@ input[type="checkbox"] {
     //
     // Reposition the icon because it's now within a grid column and columns have
     // `position: relative;` on them. Also accounts for the grid gutter padding.
-    .has-feedback .form-control-feedback {
+    .IDX-has-feedback .IDX-form-control-feedback {
       top: 0;
     }
   }
@@ -469,7 +469,7 @@ input[type="checkbox"] {
 // Horizontal forms are built on grid classes and allow you to create forms with
 // labels on the left and inputs on the right.
 
-.form-horizontal {
+.IDX-form-horizontal {
 
   // Consistent vertical alignment of radios and checkboxes
   //
@@ -484,20 +484,20 @@ input[type="checkbox"] {
   }
   // Account for padding we're adding to ensure the alignment and of help text
   // and other content below items
-  .radio,
-  .checkbox {
+  .IDX-radio,
+  .IDX-checkbox {
     min-height: (@line-height-computed + (@padding-base-vertical + 1));
   }
 
   // Make form groups behave like rows
-  .form-group {
+  .IDX-form-group {
     .make-row();
   }
 
   // Reset spacing and right align labels, but scope to media queries so that
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: @screen-sm-min) {
-    .control-label {
+    .IDX-control-label {
       text-align: right;
       margin-bottom: 0;
       padding-top: (@padding-base-vertical + 1); // Default padding plus a border
@@ -508,7 +508,7 @@ input[type="checkbox"] {
   //
   // Reposition the icon because it's now within a grid column and columns have
   // `position: relative;` on them. Also accounts for the grid gutter padding.
-  .has-feedback .form-control-feedback {
+  .IDX-has-feedback .IDX-form-control-feedback {
     top: 0;
     right: (@grid-gutter-width / 2);
   }
@@ -517,23 +517,23 @@ input[type="checkbox"] {
   //
   // Quick utility class for applying `.input-lg` and `.input-sm` styles to the
   // inputs and labels within a `.form-group`.
-  .form-group-lg {
+  .IDX-form-group-lg {
     @media (min-width: @screen-sm-min) {
       .control-label {
         padding-top: ((@padding-large-vertical * @line-height-large) + 1);
       }
     }
-    .form-control {
+    .IDX-form-control {
       &:extend(.input-lg);
     }
   }
-  .form-group-sm {
+  .IDX-form-group-sm {
     @media (min-width: @screen-sm-min) {
       .control-label {
         padding-top: (@padding-small-vertical + 1);
       }
     }
-    .form-control {
+    .IDX-form-control {
       &:extend(.input-sm);
     }
   }

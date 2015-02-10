@@ -119,6 +119,9 @@ class Converter
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
             file = apply_mixin_parent_selector(file, '\.IDX-input-(?:sm|lg)')
+            file = replace_rules file, /\.IDX-form-group-(?:sm|lg)/ do |rule|
+              apply_mixin_parent_selector rule, '.IDX-form-control'
+            end
           when 'navbar.less'
             file = replace_all file, /(\s*)\.IDX-navbar-(right|left)\s*\{\s*@extend\s*\.IDX-pull-(right|left);\s*/, "\\1.IDX-navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
@@ -134,7 +137,7 @@ class Converter
               replace_asset_url rule, :font
             }
           when 'type.less'
-            file = apply_mixin_parent_selector(file, '\.(text|bg)-(success|primary|info|warning|danger)')
+            file = apply_mixin_parent_selector(file, '\.IDX-(text|bg)-(success|primary|info|warning|danger)')
             # .bg-primary will not get patched automatically as it includes an additional rule. fudge for now
             file = replace_all(file, "  @include bg-variant($brand-primary);\n}", "}\n@include bg-variant('.bg-primary', $brand-primary);")
         end
@@ -522,7 +525,7 @@ SASS
 
       tmp = ''
       less.scan(/^(\s*&)(-[\w\[\]]+\s*\{.+})$/) do |ampersand, css|
-        tmp << ".badge#{css}\n"
+        tmp << ".IDX-badge#{css}\n"
       end
 
       less.gsub(regx, tmp)
