@@ -100,7 +100,7 @@ class Converter
           when 'component-animations.less'
             file = extract_nested_rule file, "#{SELECTOR_RE}&\\.IDX-in"
           when 'responsive-utilities.less'
-            file = apply_mixin_parent_selector file, '\.(?:visible|hidden)'
+            file = apply_mixin_parent_selector file, '\.IDX-(?:visible|hidden)'
           when 'variables.less'
             file = insert_default_vars(file)
             file = unindent <<-SCSS + file, 14
@@ -118,7 +118,7 @@ class Converter
             file = replace_all file, /@extend \.IDX-dropdown-menu-left;/, 'left: 0; right: auto;'
           when 'forms.less'
             file = extract_nested_rule file, 'textarea&'
-            file = apply_mixin_parent_selector(file, '\.input-(?:sm|lg)')
+            file = apply_mixin_parent_selector(file, '\.IDX-input-(?:sm|lg)')
           when 'navbar.less'
             file = replace_all file, /(\s*)\.IDX-navbar-(right|left)\s*\{\s*@extend\s*\.IDX-pull-(right|left);\s*/, "\\1.IDX-navbar-\\2 {\\1  float: \\2 !important;\\1"
           when 'tables.less'
@@ -388,9 +388,11 @@ SASS
           sel        = parent_sel + sel[1..-1]
         end
         # unwrap, and replace @include
-        unindent unwrap_rule_block(rule).gsub(/(@include [\w-]+)\(([\$\w\-,\s]*)\)/) {
-          args = $2
-          "#{cmt}#{$1}('#{sel.gsub(/\s+/, ' ')}'#{', ' if args && !args.empty?}#{args})"
+        unindent unwrap_rule_block(rule).gsub(/(@include [\w-]+)\(?([\$\w\-,\s]*)\)?/) {
+          name, args = $1, $2
+          sel.gsub(/\s+/, ' ').split(/,\s*/ ).map { |sel_part|
+            "#{cmt}#{name}('#{sel_part}'#{', ' if args && !args.empty?}#{args})"
+          }.join(";\n")
         }
       end
     end
