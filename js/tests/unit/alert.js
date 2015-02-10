@@ -26,38 +26,38 @@ $(function () {
     ok($(document.body).bootstrapAlert()[0] == document.body, 'document.body returned')
   })
 
-  test('should fade element out on clicking .close', function () {
-    var alertHTML = '<div class="alert-message warning fade in">' +
-        '<a class="close" href="#" data-dismiss="alert">×</a>' +
+  test('should fade element out on clicking .IDX-close', function () {
+    var alertHTML = '<div class="IDX-alert-message IDX-warning IDX-fade IDX-in">' +
+        '<a class="IDX-close" href="#" data-dismiss="alert">×</a>' +
         '<p><strong>Holy guacamole!</strong> Best check yo self, you\'re not looking too good.</p>' +
         '</div>'
     var alert = $(alertHTML).bootstrapAlert()
 
-    alert.find('.close').click()
+    alert.find('.IDX-close').click()
 
-    ok(!alert.hasClass('in'), 'remove .in class on .close click')
+    ok(!alert.hasClass('IDX-in'), 'remove .in class on .close click')
   })
 
   test('should remove element when clicking .close', function () {
     $.support.transition = false
 
-    var alertHTML = '<div class="alert-message warning fade in">' +
-        '<a class="close" href="#" data-dismiss="alert">×</a>' +
+    var alertHTML = '<div class="IDX-alert-message IDX-warning IDX-fade IDX-in">' +
+        '<a class="IDX-close" href="#" data-dismiss="alert">×</a>' +
         '<p><strong>Holy guacamole!</strong> Best check yo self, you\'re not looking too good.</p>' +
         '</div>'
     var alert = $(alertHTML).appendTo('#qunit-fixture').bootstrapAlert()
 
-    ok($('#qunit-fixture').find('.alert-message').length, 'element added to dom')
+    ok($('#qunit-fixture').find('.IDX-alert-message').length, 'element added to dom')
 
-    alert.find('.close').click()
+    alert.find('.IDX-close').click()
 
-    ok(!$('#qunit-fixture').find('.alert-message').length, 'element removed from dom')
+    ok(!$('#qunit-fixture').find('.IDX-alert-message').length, 'element removed from dom')
   })
 
   test('should not fire closed when close is prevented', function () {
     $.support.transition = false
     stop()
-    $('<div class="alert"/>')
+    $('<div class="IDX-alert"/>')
       .on('close.bs.alert', function (e) {
         e.preventDefault()
         ok(true)

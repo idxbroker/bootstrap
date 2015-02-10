@@ -113,12 +113,12 @@ $(function () {
   test('should remove from dom when click [data-dismiss="modal"]', function () {
     stop()
     $.support.transition = false
-    var div = $('<div id="modal-test"><span class="close" data-dismiss="modal"></span></div>')
+    var div = $('<div id="modal-test"><span class="IDX-close" data-dismiss="modal"></span></div>')
     div
       .on('shown.bs.modal', function () {
         ok($('#modal-test').is(':visible'), 'modal visible')
         ok($('#modal-test').length, 'modal inserted into dom')
-        div.find('.close').click()
+        div.find('.IDX-close').click()
       })
       .on('hidden.bs.modal', function () {
         ok(!$('#modal-test').is(':visible'), 'modal hidden')

@@ -29,9 +29,9 @@
 
   Tooltip.DEFAULTS = {
     animation: true,
-    placement: 'top',
+    placement: 'IDX-top',
     selector: false,
-    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+    template: '<div class="IDX-tooltip" role="tooltip"><div class="IDX-tooltip-arrow"></div><div class="IDX-tooltip-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -157,7 +157,7 @@
       $tip.attr('id', tipId)
       this.$element.attr('aria-describedby', tipId)
 
-      if (this.options.animation) $tip.addClass('fade')
+      if (this.options.animation) $tip.addClass('IDX-fade')
 
       var placement = typeof this.options.placement == 'function' ?
         this.options.placement.call(this, $tip[0], this.$element[0]) :
@@ -165,7 +165,7 @@
 
       var autoToken = /\s?auto?\s?/i
       var autoPlace = autoToken.test(placement)
-      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'
+      if (autoPlace) placement = placement.replace(autoToken, '') || 'IDX-top'
 
       $tip
         .detach()
@@ -184,10 +184,10 @@
         var $parent      = this.$element.parent()
         var parentDim    = this.getPosition($parent)
 
-        placement = placement == 'bottom' && pos.top   + pos.height       + actualHeight - parentDim.scroll > parentDim.height ? 'top'    :
-                    placement == 'top'    && pos.top   - parentDim.scroll - actualHeight < 0                                   ? 'bottom' :
-                    placement == 'right'  && pos.right + actualWidth      > parentDim.width                                    ? 'left'   :
-                    placement == 'left'   && pos.left  - actualWidth      < parentDim.left                                     ? 'right'  :
+        placement = placement == 'IDX-bottom' && pos.top   + pos.height       + actualHeight - parentDim.scroll > parentDim.height ? 'IDX-top'    :
+                    placement == 'IDX-top'    && pos.top   - parentDim.scroll - actualHeight < 0                                   ? 'IDX-bottom' :
+                    placement == 'IDX-right'  && pos.right + actualWidth      > parentDim.width                                    ? 'IDX-left'   :
+                    placement == 'IDX-left'   && pos.left  - actualWidth      < parentDim.left                                     ? 'IDX-right'  :
                     placement
 
         $tip
@@ -204,7 +204,7 @@
         that.hoverState = null
       }
 
-      $.support.transition && this.$tip.hasClass('fade') ?
+      $.support.transition && this.$tip.hasClass('IDX-fade') ?
         $tip
           .one('bsTransitionEnd', complete)
           .emulateTransitionEnd(150) :
@@ -239,13 +239,13 @@
       }
     }, offset), 0)
 
-    $tip.addClass('in')
+    $tip.addClass('IDX-in')
 
     // check to see if placing tip in new offset caused the tip to resize itself
     var actualWidth  = $tip[0].offsetWidth
     var actualHeight = $tip[0].offsetHeight
 
-    if (placement == 'top' && actualHeight != height) {
+    if (placement == 'IDX-top' && actualHeight != height) {
       offset.top = offset.top + height - actualHeight
     }
 
@@ -270,8 +270,8 @@
     var $tip  = this.tip()
     var title = this.getTitle()
 
-    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
-    $tip.removeClass('fade in top bottom left right')
+    $tip.find('.IDX-tooltip-inner')[this.options.html ? 'html' : 'text'](title)
+    $tip.removeClass('IDX-fade IDX-in IDX-top IDX-bottom IDX-left IDX-right')
   }
 
   Tooltip.prototype.hide = function () {
@@ -292,7 +292,7 @@
 
     $tip.removeClass('in')
 
-    $.support.transition && this.$tip.hasClass('fade') ?
+    $.support.transition && this.$tip.hasClass('IDX-fade') ?
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(150) :
@@ -326,10 +326,10 @@
   }
 
   Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2  } :
-           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2  } :
-           placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width   }
+    return placement == 'IDX-bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } :
+           placement == 'IDX-top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } :
+           placement == 'IDX-left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
+        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
 
   }
 
@@ -340,7 +340,7 @@
     var viewportPadding = this.options.viewport && this.options.viewport.padding || 0
     var viewportDimensions = this.getPosition(this.$viewport)
 
-    if (/right|left/.test(placement)) {
+    if (/IDX-right|IDX-left/.test(placement)) {
       var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll
       var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight
       if (topEdgeOffset < viewportDimensions.top) { // top overflow
@@ -383,7 +383,7 @@
   }
 
   Tooltip.prototype.arrow = function () {
-    return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
+    return (this.$arrow = this.$arrow || this.tip().find('.IDX-tooltip-arrow'))
   }
 
   Tooltip.prototype.validate = function () {

@@ -23,7 +23,7 @@
 
     if (this.options.remote) {
       this.$element
-        .find('.modal-content')
+        .find('.IDX-modal-content')
         .load(this.options.remote, $.proxy(function () {
           this.$element.trigger('loaded.bs.modal')
         }, this))
@@ -53,7 +53,7 @@
     this.isShown = true
 
     this.checkScrollbar()
-    this.$body.addClass('modal-open')
+    this.$body.addClass('IDX-modal-open')
 
     this.setScrollbar()
     this.escape()
@@ -61,7 +61,7 @@
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
     this.backdrop(function () {
-      var transition = $.support.transition && that.$element.hasClass('fade')
+      var transition = $.support.transition && that.$element.hasClass('IDX-fade')
 
       if (!that.$element.parent().length) {
         that.$element.appendTo(that.$body) // don't move modals dom position
@@ -76,15 +76,15 @@
       }
 
       that.$element
-        .addClass('in')
-        .attr('aria-hidden', false)
+        .addClass('IDX-in')
+        .attr('IDX-aria-hidden', false)
 
       that.enforceFocus()
 
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        that.$element.find('.IDX-modal-dialog') // wait for modal to slide in
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -104,7 +104,7 @@
 
     this.isShown = false
 
-    this.$body.removeClass('modal-open')
+    this.$body.removeClass('IDX-modal-open')
 
     this.resetScrollbar()
     this.escape()
@@ -116,7 +116,7 @@
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
 
-    $.support.transition && this.$element.hasClass('fade') ?
+    $.support.transition && this.$element.hasClass('IDX-fade') ?
       this.$element
         .one('bsTransitionEnd', $.proxy(this.hideModal, this))
         .emulateTransitionEnd(300) :
@@ -158,12 +158,12 @@
 
   Modal.prototype.backdrop = function (callback) {
     var that = this
-    var animate = this.$element.hasClass('fade') ? 'fade' : ''
+    var animate = this.$element.hasClass('IDX-fade') ? 'fade' : ''
 
     if (this.isShown && this.options.backdrop) {
       var doAnimate = $.support.transition && animate
 
-      this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+      this.$backdrop = $('<div class="IDX-modal-backdrop ' + animate + '" />')
         .appendTo(this.$body)
 
       this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
@@ -175,7 +175,7 @@
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
-      this.$backdrop.addClass('in')
+      this.$backdrop.addClass('IDX-in')
 
       if (!callback) return
 
@@ -186,13 +186,13 @@
         callback()
 
     } else if (!this.isShown && this.$backdrop) {
-      this.$backdrop.removeClass('in')
+      this.$backdrop.removeClass('IDX-in')
 
       var callbackRemove = function () {
         that.removeBackdrop()
         callback && callback()
       }
-      $.support.transition && this.$element.hasClass('fade') ?
+      $.support.transition && this.$element.hasClass('IDX-fade') ?
         this.$backdrop
           .one('bsTransitionEnd', callbackRemove)
           .emulateTransitionEnd(150) :

@@ -107,9 +107,9 @@ $(function () {
     $scrollSpy.bootstrapScrollspy({ target: '#navigation', offset: $scrollSpy.position().top })
 
     $scrollSpy.on('scroll.bs.scrollspy', function () {
-      ok(!$section.find('#one-link').parent().hasClass('active'), 'Active class removed from first section')
-      ok($section.find('#two-link').parent().hasClass('active'), 'Active class on middle section')
-      ok(!$section.find('#three-link').parent().hasClass('active'), 'Active class not on last section')
+      ok(!$section.find('#one-link').parent().hasClass('IDX-active'), 'Active class removed from first section')
+      ok($section.find('#two-link').parent().hasClass('IDX-active'), 'Active class on middle section')
+      ok(!$section.find('#three-link').parent().hasClass('IDX-active'), 'Active class not on last section')
       start()
     })
     $scrollSpy.scrollTop(550);

@@ -29,38 +29,38 @@
   }
 
   Collapse.prototype.dimension = function () {
-    var hasWidth = this.$element.hasClass('width')
+    var hasWidth = this.$element.hasClass('IDX-width')
     return hasWidth ? 'width' : 'height'
   }
 
   Collapse.prototype.show = function () {
-    if (this.transitioning || this.$element.hasClass('in')) return
+    if (this.transitioning || this.$element.hasClass('IDX-in')) return
 
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
-    var actives = this.$parent && this.$parent.find('> .panel > .in')
+    var actives = this.$parent && this.$parent.find('> .IDX-panel > .IDX-in')
 
     if (actives && actives.length) {
       var hasData = actives.data('bs.collapse')
       if (hasData && hasData.transitioning) return
-      Plugin.call(actives, 'hide')
+      Plugin.call(actives, 'IDX-hide')
       hasData || actives.data('bs.collapse', null)
     }
 
     var dimension = this.dimension()
 
     this.$element
-      .removeClass('collapse')
-      .addClass('collapsing')[dimension](0)
+      .removeClass('IDX-collapse')
+      .addClass('IDX-collapsing')[dimension](0)
 
     this.transitioning = 1
 
     var complete = function () {
       this.$element
-        .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('')
+        .removeClass('IDX-collapsing')
+        .addClass('IDX-collapse IDX-in')[dimension]('')
       this.transitioning = 0
       this.$element
         .trigger('shown.bs.collapse')
@@ -76,7 +76,7 @@
   }
 
   Collapse.prototype.hide = function () {
-    if (this.transitioning || !this.$element.hasClass('in')) return
+    if (this.transitioning || !this.$element.hasClass('IDX-in')) return
 
     var startEvent = $.Event('hide.bs.collapse')
     this.$element.trigger(startEvent)
@@ -87,9 +87,9 @@
     this.$element[dimension](this.$element[dimension]())[0].offsetHeight
 
     this.$element
-      .addClass('collapsing')
-      .removeClass('collapse')
-      .removeClass('in')
+      .addClass('IDX-collapsing')
+      .removeClass('IDX-collapse')
+      .removeClass('IDX-in')
 
     this.transitioning = 1
 
@@ -97,8 +97,8 @@
       this.transitioning = 0
       this.$element
         .trigger('hidden.bs.collapse')
-        .removeClass('collapsing')
-        .addClass('collapse')
+        .removeClass('IDX-collapsing')
+        .addClass('IDX-collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -110,7 +110,7 @@
   }
 
   Collapse.prototype.toggle = function () {
-    this[this.$element.hasClass('in') ? 'hide' : 'show']()
+    this[this.$element.hasClass('IDX-in') ? 'hide' : 'show']()
   }
 
 
@@ -160,8 +160,8 @@
     var $parent = parent && $(parent)
 
     if (!data || !data.transitioning) {
-      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
-      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('IDX-collapsed')
+      $this[$target.hasClass('IDX-in') ? 'addClass' : 'removeClass']('IDX-collapsed')
     }
 
     Plugin.call($target, option)

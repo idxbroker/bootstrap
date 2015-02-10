@@ -47,10 +47,10 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapTooltip('show')
     ok(tooltip.attr('aria-describedby'), 'has the right attributes')
-    var id = $('.tooltip').attr('id')
+    var id = $('.IDX-tooltip').attr('id')
 
     ok($('#' + id).length == 1, 'has a unique id')
-    ok($('.tooltip').attr('aria-describedby') === tooltip.attr('id'), 'they match!')
+    ok($('.IDX-tooltip').attr('aria-describedby') === tooltip.attr('id'), 'they match!')
     ok(tooltip.attr('aria-describedby') !== undefined, 'has the right attributes')
   })
 
@@ -67,7 +67,7 @@ $(function () {
     $('<a href="#" rel="tooltip" title="Another tooltip"></a>')
       .appendTo('#qunit-fixture')
       .bootstrapTooltip('show')
-    var id = $('.tooltip').attr('id')
+    var id = $('.IDX-tooltip').attr('id')
 
     ok($('#' + id).length == 1 && id.indexOf('tooltip') === 0, 'generated prefixed and unique tooltip id')
   })
@@ -76,10 +76,10 @@ $(function () {
     $.support.transition = false
     var tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"></a>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({ placement: 'bottom' })
+      .bootstrapTooltip({ placement: 'IDX-bottom' })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip').is('.fade.bottom.in'), 'has correct classes applied')
+    ok($('.IDX-tooltip').is('.IDX-fade.IDX-bottom.IDX-in'), 'has correct classes applied')
     tooltip.bootstrapTooltip('hide')
   })
 
@@ -90,20 +90,20 @@ $(function () {
       .bootstrapTooltip({ html: true })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip b').length, 'b tag was inserted')
+    ok($('.IDX-tooltip b').length, 'b tag was inserted')
     tooltip.bootstrapTooltip('hide')
-    ok(!$('.tooltip').length, 'tooltip removed')
+    ok(!$('.IDX-tooltip').length, 'tooltip removed')
   })
 
   test('should respect custom classes', function () {
     var tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"></a>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({ template: '<div class="tooltip some-class"><div class="tooltip-arrow"/><div class="tooltip-inner"/></div>' })
+      .bootstrapTooltip({ template: '<div class="IDX-tooltip some-class"><div class="IDX-tooltip-arrow"/><div class="IDX-tooltip-inner"/></div>' })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip').hasClass('some-class'), 'custom class is present')
+    ok($('.IDX-tooltip').hasClass('some-class'), 'custom class is present')
     tooltip.bootstrapTooltip('hide')
-    ok(!$('.tooltip').length, 'tooltip removed')
+    ok(!$('.IDX-tooltip').length, 'IDX-tooltip removed')
   })
 
   test('should fire show event', function () {
@@ -201,10 +201,10 @@ $(function () {
     tooltip.trigger('mouseenter')
 
     setTimeout(function () {
-      ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+      ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
       tooltip.trigger('mouseout')
       setTimeout(function () {
-        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+        ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
         start()
       }, 200)
     }, 100)
@@ -220,10 +220,10 @@ $(function () {
     tooltip.trigger('mouseenter')
 
     setTimeout(function () {
-      ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+      ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
       tooltip.trigger('mouseout')
       setTimeout(function () {
-        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+        ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
         start()
       }, 200)
     }, 100)
@@ -239,12 +239,12 @@ $(function () {
     tooltip.trigger('mouseenter')
 
     setTimeout(function () {
-      ok($('.tooltip').is('.fade.in'), 'tooltip is faded in')
+      ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is faded in')
       tooltip.trigger('mouseout')
       setTimeout(function () {
-        ok($('.tooltip').is('.fade.in'), '100ms:tooltip is still faded in')
+        ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), '100ms:tooltip is still faded in')
         setTimeout(function () {
-          ok(!$('.tooltip').is('.in'), 'tooltip removed')
+          ok(!$('.IDX-tooltip').is('.IDX-in'), 'tooltip removed')
           start()
         }, 150)
       }, 100)
@@ -261,13 +261,13 @@ $(function () {
     tooltip.trigger('mouseenter')
 
     setTimeout(function () {
-      ok($('.tooltip').is('.fade.in'), 'tooltip is faded in')
+      ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is faded in')
       tooltip.trigger('mouseout')
       setTimeout(function () {
-        ok($('.tooltip').is('.fade.in'), '100ms:tooltip is still faded in')
+        ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), '100ms:tooltip is still faded in')
         tooltip.trigger('mouseenter')
         setTimeout(function () {
-          ok($('.tooltip').is('.in'), 'tooltip removed')
+          ok($('.IDX-tooltip').is('.IDX-in'), 'tooltip removed')
           start()
         }, 150)
       }, 100)
@@ -281,10 +281,10 @@ $(function () {
     stop()
     tooltip.trigger('mouseenter')
     setTimeout(function () {
-      ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+      ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
       tooltip.trigger('mouseout')
       setTimeout(function () {
-        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+        ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
         start()
       }, 100)
     }, 50)
@@ -297,10 +297,10 @@ $(function () {
     stop()
     tooltip.trigger('mouseenter')
     setTimeout(function () {
-      ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in')
+      ok(!$('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is not faded in')
     }, 100)
     setTimeout(function () {
-      ok($('.tooltip').is('.fade.in'), 'tooltip has faded in')
+      ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip has faded in')
       start()
     }, 200)
   })
@@ -312,7 +312,7 @@ $(function () {
     ok($._data(tooltip[0], 'events').click[0].namespace == 'foo', 'tooltip has extra click.foo event')
     tooltip.bootstrapTooltip('show')
     tooltip.bootstrapTooltip('destroy')
-    ok(!tooltip.hasClass('in'), 'tooltip is hidden')
+    ok(!tooltip.hasClass('IDX-in'), 'tooltip is hidden')
     ok(!$._data(tooltip[0], 'bs.tooltip'), 'tooltip does not have data')
     ok($._data(tooltip[0], 'events').click[0].namespace == 'foo', 'tooltip still has click.foo')
     ok(!$._data(tooltip[0], 'events').mouseover && !$._data(tooltip[0], 'events').mouseout, 'tooltip does not have any events')
@@ -324,7 +324,7 @@ $(function () {
       selector: 'a[rel="tooltip"]', trigger: 'click'
     })
     div.find('a').trigger('click')
-    ok($('.tooltip').is('.fade.in'), 'tooltip is faded in')
+    ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip is faded in')
   })
 
   test('should show tooltip when toggle is called', function () {
@@ -332,7 +332,7 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({ trigger: 'manual' })
       .bootstrapTooltip('toggle')
-    ok($('.tooltip').is('.fade.in'), 'tooltip should be toggled in')
+    ok($('.IDX-tooltip').is('.IDX-fade.IDX-in'), 'tooltip should be toggled in')
   })
 
   test('should hide shown tooltip when toggle is called on tooltip', function () {
@@ -341,7 +341,7 @@ $(function () {
       .bootstrapTooltip({ trigger: 'manual' })
       .bootstrapTooltip('toggle')
     $('.tooltip', '#qunit-fixture').bootstrapTooltip('toggle')
-    ok($('.tooltip').not('.fade.in'), 'tooltip should be toggled out')
+    ok($('.IDX-tooltip').not('.IDX-fade.IDX-in'), 'tooltip should be toggled out')
     tooltip.bootstrapTooltip('hide')
     $('#qunit-fixture').empty()
   })
@@ -351,8 +351,8 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({ container: 'body' })
       .bootstrapTooltip('show')
-    ok($('body > .tooltip').length, 'inside the body')
-    ok(!$('#qunit-fixture > .tooltip').length, 'not found in parent')
+    ok($('body > .IDX-tooltip').length, 'inside the body')
+    ok(!$('#qunit-fixture > .IDX-tooltip').length, 'not found in parent')
     tooltip.bootstrapTooltip('hide')
   })
 
@@ -368,7 +368,7 @@ $(function () {
     stop()
 
     setTimeout(function () {
-      ok($('.tooltip').offset().left >= 0)
+      ok($('.IDX-tooltip').offset().left >= 0)
 
       start()
       container.remove()
@@ -382,13 +382,13 @@ $(function () {
     var tooltiped = $('<a href="#" title="very very very very very very very long tooltip">Hover me</a>')
             .css({ marginTop: 200 })
             .appendTo(p)
-            .bootstrapTooltip({ placement: 'top', animate: false })
+            .bootstrapTooltip({ placement: 'IDX-top', animate: false })
             .bootstrapTooltip('show')
 
     stop()
 
     setTimeout(function () {
-      var tooltip = container.find('.tooltip')
+      var tooltip = container.find('.IDX-tooltip')
 
       start()
       ok(Math.round(tooltip.offset().top + tooltip.outerHeight()) <= Math.round(tooltiped.offset().top))
@@ -404,7 +404,7 @@ $(function () {
           .appendTo(container)
           .bootstrapTooltip({ placement: 'right', viewport: null })
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     // this is some dumb hack shit because sub pixels in firefox
     var top = Math.round(target.offset().top + (target[0].offsetHeight / 2) - (tooltip[0].offsetHeight / 2))
@@ -420,9 +420,9 @@ $(function () {
       .appendTo('#qunit-fixture')
       .bootstrapTooltip({})
       .bootstrapTooltip('show')
-    equal($('.tooltip').children('.tooltip-inner').text(), 'Simple tooltip', 'title from title attribute is set')
+    equal($('.IDX-tooltip').children('.IDX-tooltip-inner').text(), 'Simple tooltip', 'title from title attribute is set')
     tooltip.bootstrapTooltip('hide')
-    ok(!$('.tooltip').length, 'tooltip removed')
+    ok(!$('.IDX-tooltip').length, 'tooltip removed')
   })
 
   test('tooltip title test #2', function () {
@@ -432,9 +432,9 @@ $(function () {
         title: 'This is a tooltip with some content'
       })
       .bootstrapTooltip('show')
-    equal($('.tooltip').children('.tooltip-inner').text(), 'Simple tooltip', 'title is set from title attribute while prefered over title option')
+    equal($('.IDX-tooltip').children('.IDX-tooltip-inner').text(), 'Simple tooltip', 'title is set from title attribute while prefered over title option')
     tooltip.bootstrapTooltip('hide')
-    ok(!$('.tooltip').length, 'tooltip removed')
+    ok(!$('.IDX-tooltip').length, 'tooltip removed')
   })
 
   test('tooltip title test #3', function () {
@@ -444,9 +444,9 @@ $(function () {
         title: 'This is a tooltip with some content'
       })
       .bootstrapTooltip('show')
-    equal($('.tooltip').children('.tooltip-inner').text(), 'This is a tooltip with some content', 'title from title option is set')
+    equal($('.IDX-tooltip').children('.IDX-tooltip-inner').text(), 'This is a tooltip with some content', 'title from title option is set')
     tooltip.bootstrapTooltip('hide')
-    ok(!$('.tooltip').length, 'tooltip removed')
+    ok(!$('.IDX-tooltip').length, 'tooltip removed')
   })
 
   test('tooltips should be placed dynamically, with the dynamic placement option', function () {
@@ -466,38 +466,38 @@ $(function () {
       .bootstrapTooltip({ placement: 'auto' })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip').is('.bottom'), 'top positioned tooltip is dynamically positioned bottom')
+    ok($('.IDX-tooltip').is('.IDX-bottom'), 'top positioned tooltip is dynamically positioned bottom')
 
     topTooltip.bootstrapTooltip('hide')
 
     var rightTooltip = $('<div style="display: inline-block; position: absolute; right: 0;" rel="tooltip" title="Right tooltip">Right Dynamic Tooltip</div>')
       .appendTo('#dynamic-tt-test')
-      .bootstrapTooltip({ placement: 'right auto' })
+      .bootstrapTooltip({ placement: 'IDX-right auto' })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip').is('.left'), 'right positioned tooltip is dynamically positioned left')
+    ok($('.IDX-tooltip').is('.IDX-left'), 'right positioned tooltip is dynamically positioned left')
     rightTooltip.bootstrapTooltip('hide')
 
     var leftTooltip = $('<div style="display: inline-block; position: absolute; left: 0;" rel="tooltip" title="Left tooltip">Left Dynamic Tooltip</div>')
       .appendTo('#dynamic-tt-test')
-      .bootstrapTooltip({ placement: 'auto left' })
+      .bootstrapTooltip({ placement: 'auto IDX-left' })
       .bootstrapTooltip('show')
 
-    ok($('.tooltip').is('.right'), 'left positioned tooltip is dynamically positioned right')
+    ok($('.IDX-tooltip').is('.IDX-right'), 'left positioned tooltip is dynamically positioned right')
     leftTooltip.bootstrapTooltip('hide')
 
     ttContainer.remove()
   })
 
   test('should adjust the tip\'s top when up against the top of the viewport', function () {
-    $('head').append('<style id="test"> .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
+    $('head').append('<style id="test"> .IDX-tooltip .IDX-tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
 
     var container = $('<div />').appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; top: 0px; left: 0px;"></a>')
           .appendTo(container)
-          .bootstrapTooltip({ placement: 'right', viewport: { selector: 'body', padding: 12 }})
+          .bootstrapTooltip({ placement: 'IDX-right', viewport: { selector: 'body', padding: 12 }})
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     ok(Math.round(tooltip.offset().top) === 12)
     target.bootstrapTooltip('hide')
@@ -505,14 +505,14 @@ $(function () {
   })
 
   test('should adjust the tip\'s top when up against the bottom of the viewport', function () {
-    $('head').append('<style id="test"> .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
+    $('head').append('<style id="test"> .IDX-tooltip .IDX-tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
 
     var container = $('<div />').appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; bottom: 0px; left: 0px;"></a>')
           .appendTo(container)
-          .bootstrapTooltip({ placement: 'right', viewport: { selector: 'body', padding: 12 }})
+          .bootstrapTooltip({ placement: 'IDX-right', viewport: { selector: 'body', padding: 12 }})
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     ok(Math.round(tooltip.offset().top) === Math.round($(window).height() - 12 - tooltip[0].offsetHeight))
     target.bootstrapTooltip('hide')
@@ -520,14 +520,14 @@ $(function () {
   })
 
   test('should adjust the tip\'s left when up against the left of the viewport', function () {
-    $('head').append('<style id="test"> .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
+    $('head').append('<style id="test"> .IDX-tooltip .IDX-tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
 
     var container = $('<div />').appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; top: 0px; left: 0px;"></a>')
           .appendTo(container)
-          .bootstrapTooltip({ placement: 'bottom', viewport: { selector: 'body', padding: 12 }})
+          .bootstrapTooltip({ placement: 'IDX-bottom', viewport: { selector: 'body', padding: 12 }})
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     ok(Math.round(tooltip.offset().left) === 12)
     target.bootstrapTooltip('hide')
@@ -535,14 +535,14 @@ $(function () {
   })
 
   test('should adjust the tip\'s left when up against the right of the viewport', function () {
-    $('head').append('<style id="test"> .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
+    $('head').append('<style id="test"> .IDX-tooltip .IDX-tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
 
     var container = $('<div />').appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; top: 0px; right: 0px;"></a>')
           .appendTo(container)
-          .bootstrapTooltip({ placement: 'bottom', viewport: { selector: 'body', padding: 12 }})
+          .bootstrapTooltip({ placement: 'IDX-bottom', viewport: { selector: 'body', padding: 12 }})
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     ok(Math.round(tooltip.offset().left) === Math.round($(window).width() - 12 - tooltip[0].offsetWidth))
     target.bootstrapTooltip('hide')
@@ -550,15 +550,15 @@ $(function () {
   })
 
   test('should adjust the tip when up against the right of an arbitrary viewport', function () {
-    $('head').append('<style id="test"> .tooltip, .tooltip .tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
+    $('head').append('<style id="test"> .IDX-tooltip .IDX-tooltip-inner { width: 200px; height: 200px; max-width: none; } </style>')
     $('head').append('<style id="viewport-style"> .container-viewport { position: absolute; top: 50px; left: 60px; width: 300px; height: 300px; } </style>')
 
     var container = $('<div />', { 'class': 'container-viewport' }).appendTo('body')
     var target = $('<a href="#" rel="tooltip" title="tip" style="position: fixed; top: 50px; left: 350px;"></a>')
           .appendTo(container)
-          .bootstrapTooltip({ placement: 'bottom', viewport: '.container-viewport' })
+          .bootstrapTooltip({ placement: 'IDX-bottom', viewport: '.container-viewport' })
           .bootstrapTooltip('show')
-    var tooltip = container.find('.tooltip')
+    var tooltip = container.find('.IDX-tooltip')
 
     ok(Math.round(tooltip.offset().left) === Math.round(60 + container.width() - tooltip[0].offsetWidth))
     target.bootstrapTooltip('hide')

@@ -25,7 +25,7 @@
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    template: '<div class="IDX-popover" role="tooltip"><div class="IDX-arrow"></div><h3 class="IDX-popover-title"></h3><div class="IDX-popover-content"></div></div>'
   })
 
 
@@ -45,8 +45,8 @@
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').empty()[ // we use append for html objects to maintain js events
+    $tip.find('.IDX-popover-title')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.IDX-popover-content').empty()[ // we use append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
     ](content)
 
@@ -54,7 +54,7 @@
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.IDX-popover-title').html()) $tip.find('.IDX-popover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
@@ -72,7 +72,7 @@
   }
 
   Popover.prototype.arrow = function () {
-    return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
+    return (this.$arrow = this.$arrow || this.tip().find('.IDX-arrow'))
   }
 
   Popover.prototype.tip = function () {
